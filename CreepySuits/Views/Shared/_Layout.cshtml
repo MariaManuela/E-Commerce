@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using CreepySuits.Repository
+
+@{
+    ICategoryRepository icategoryRepository = new CategoryRepository();
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -29,6 +35,16 @@
             </div>
         </div>
     </div>
+
+
+    @{
+        foreach (var category in icategoryRepository.FindAll())
+        {
+            <li><a href="@Url.Action("Category", "Products", new { id=category.CategoryId})">@category.CategoryName</a></li>
+        }
+    }
+
+    
     <div class="container body-content">
         @RenderBody()
         <hr />

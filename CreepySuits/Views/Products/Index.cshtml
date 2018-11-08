@@ -34,11 +34,12 @@
             @Html.DisplayNameFor(model => model.DeliveryType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.DisplayNameFor(model => model.CategoryName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AgeCategory)
+            @Html.DisplayNameFor(model => model.AgeCategoryName)
         </th>
+
         <th></th>
     </tr>
 
@@ -66,15 +67,16 @@
             @Html.DisplayFor(modelItem => item.DeliveryType)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Category)
+            @Html.DisplayFor(modelItem => item.CategoryName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AgeCategory)
+            @Html.DisplayFor(modelItem => item.AgeCategoryName)
         </td>
+       
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
         </td>
     </tr>
 }

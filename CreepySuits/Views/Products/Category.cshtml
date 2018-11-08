@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CreepySuits.Models.Product>
+
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Price
+        </th>
+        
+        <th>
+            PicUrl
+        </th>
+       
+        <th></th>
+    </tr>
+
+@*@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicUrl)
+        </td>
+        <td>
+            <a href="/CreepuSuits/Category/Product-Details/@item.Name">
+                <img src="~/ProjectDocuments/Images/@item.ProductId/Thumbs/@item.PicUrl" />
+            </a>
+        </td>
+        <td>
+            <a href="/CreepySuits/Category/Product-Details/@item.Name">Details</a>
+        </td>
+    </tr>
+}*@
+
+</table>

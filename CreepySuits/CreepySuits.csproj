@@ -47,9 +47,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -58,6 +64,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -101,9 +113,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -197,83 +206,33 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810190800474_19October.cs" />
-    <Compile Include="Migrations\201810190800474_19October.Designer.cs">
-      <DependentUpon>201810190800474_19October.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810190820558_19October-2.cs" />
-    <Compile Include="Migrations\201810190820558_19October-2.Designer.cs">
-      <DependentUpon>201810190820558_19October-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810190836510_19October-3.cs" />
-    <Compile Include="Migrations\201810190836510_19October-3.Designer.cs">
-      <DependentUpon>201810190836510_19October-3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810241422583_24October.cs" />
-    <Compile Include="Migrations\201810241422583_24October.Designer.cs">
-      <DependentUpon>201810241422583_24October.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810241427232_24October-2.cs" />
-    <Compile Include="Migrations\201810241427232_24October-2.Designer.cs">
-      <DependentUpon>201810241427232_24October-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810241548388_Category.cs" />
-    <Compile Include="Migrations\201810241548388_Category.Designer.cs">
-      <DependentUpon>201810241548388_Category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810241552482_AgeCategory.cs" />
-    <Compile Include="Migrations\201810241552482_AgeCategory.Designer.cs">
-      <DependentUpon>201810241552482_AgeCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810241556029_Product-2.cs" />
-    <Compile Include="Migrations\201810241556029_Product-2.Designer.cs">
-      <DependentUpon>201810241556029_Product-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810251728071_25October.cs" />
-    <Compile Include="Migrations\201810251728071_25October.Designer.cs">
-      <DependentUpon>201810251728071_25October.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810251742352_NUMERGE.cs" />
-    <Compile Include="Migrations\201810251742352_NUMERGE.Designer.cs">
-      <DependentUpon>201810251742352_NUMERGE.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810251749269_NUMERGE1.cs" />
-    <Compile Include="Migrations\201810251749269_NUMERGE1.Designer.cs">
-      <DependentUpon>201810251749269_NUMERGE1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810251754226_NUMERGE2.cs" />
-    <Compile Include="Migrations\201810251754226_NUMERGE2.Designer.cs">
-      <DependentUpon>201810251754226_NUMERGE2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810251804205_mergea.cs" />
-    <Compile Include="Migrations\201810251804205_mergea.Designer.cs">
-      <DependentUpon>201810251804205_mergea.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810252005250_25oct.cs" />
-    <Compile Include="Migrations\201810252005250_25oct.Designer.cs">
-      <DependentUpon>201810252005250_25oct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201810252006463_25oct-2.cs" />
-    <Compile Include="Migrations\201810252006463_25oct-2.Designer.cs">
-      <DependentUpon>201810252006463_25oct-2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\GenderAgeCategory.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\ICategoryRepository.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -309,13 +268,14 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -342,9 +302,16 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\EachProductView.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Browse.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Products\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ProjectDocuments\Images\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
@@ -362,53 +329,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810190800474_19October.resx">
-      <DependentUpon>201810190800474_19October.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810190820558_19October-2.resx">
-      <DependentUpon>201810190820558_19October-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810190836510_19October-3.resx">
-      <DependentUpon>201810190836510_19October-3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810241422583_24October.resx">
-      <DependentUpon>201810241422583_24October.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810241427232_24October-2.resx">
-      <DependentUpon>201810241427232_24October-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810241548388_Category.resx">
-      <DependentUpon>201810241548388_Category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810241552482_AgeCategory.resx">
-      <DependentUpon>201810241552482_AgeCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810241556029_Product-2.resx">
-      <DependentUpon>201810241556029_Product-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810251728071_25October.resx">
-      <DependentUpon>201810251728071_25October.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810251742352_NUMERGE.resx">
-      <DependentUpon>201810251742352_NUMERGE.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810251749269_NUMERGE1.resx">
-      <DependentUpon>201810251749269_NUMERGE1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810251754226_NUMERGE2.resx">
-      <DependentUpon>201810251754226_NUMERGE2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810251804205_mergea.resx">
-      <DependentUpon>201810251804205_mergea.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810252005250_25oct.resx">
-      <DependentUpon>201810252005250_25oct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810252006463_25oct-2.resx">
-      <DependentUpon>201810252006463_25oct-2.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

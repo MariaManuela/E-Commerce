@@ -1,0 +1,41 @@
+﻿@model CreepySuits.Models.Product
+
+@{
+    ViewBag.Title = "Product - " + Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<p>
+    <img src="@Url.Content("~/ProjectDocuments/Images/" + Model.PicUrl)" alt="" width="100" />
+</p>
+<div id="album-details">
+    <p>
+        <em>Category:</em>
+        @Model.Category
+    </p>
+    <p>
+        <em>Description:</em>
+        @Model.Description
+    </p>
+    <p>
+        <em>Specification:</em>
+        @Model.Specifications
+    </p>
+    <p>
+        <em>Provider:</em>
+        @Model.Provider
+    </p>
+    <p>
+        <em>Stock:</em>
+        @Model.Stock
+    </p>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}",Model.Price)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart","ShoppingCart", new { id = Model.ProductId }, "")
+    </p>
+</div>
+

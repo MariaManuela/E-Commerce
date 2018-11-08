@@ -29,18 +29,22 @@ namespace CreepySuits.Models
 
         
         public ApplicationDbContext()
-            : base("ProductModels", throwIfV1Schema: false)
+            : base("master", throwIfV1Schema: false)
         {
         }
 
         public static ApplicationDbContext Create()
         {
-          
+
             return new ApplicationDbContext();
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<GenderAgeCategory> GenderAgeCategories { get; set; }
-
+      
+        public DbSet<Cart> Cart { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+        
     }
 }
