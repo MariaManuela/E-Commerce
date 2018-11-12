@@ -31,7 +31,7 @@ namespace CreepySuits.Models
     [Table("Product")]
     public class Product
     {
-       
+       [Key]
         public int ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -45,9 +45,10 @@ namespace CreepySuits.Models
         public string PicUrl { get; set; }
         
         public string CategoryName { get; set; }
-        
-        //[NotMapped]
-        //HttpPostedFileBase File { get; set; }
+        public int? CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+
+
 
 
     }

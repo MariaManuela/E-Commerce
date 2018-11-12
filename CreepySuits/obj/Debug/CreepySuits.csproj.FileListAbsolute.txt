@@ -126,3 +126,12 @@ E:\Programele\CreepySuits\CreepySuits\bin\System.Web.Http.WebHost.dll
 E:\Programele\CreepySuits\CreepySuits\bin\System.Net.Http.Formatting.xml
 E:\Programele\CreepySuits\CreepySuits\bin\System.Web.Http.xml
 E:\Programele\CreepySuits\CreepySuits\bin\System.Web.Http.WebHost.xml
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.izi1.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.csproj.GenerateResource.cache
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.izi8.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations._1.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations._2.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations._3.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations._5.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations._6.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations._8.resources

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<CreepySuits.Models.Product>
+﻿@using CreepySuits.Repository
+@using CreepySuits.Models
+@model IEnumerable<CreepySuits.Models.Product>
 
 @{
     ViewBag.Title = "Category";
@@ -20,32 +22,25 @@
         </th>
         
         <th>
-            PicUrl
+            
         </th>
        
         <th></th>
     </tr>
 
-@*@foreach (var item in Model) {
+@foreach (var item in (List<Product>)ViewBag.products) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @item.Name
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price)
+            @item.Price
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PicUrl)
+            <img src="@Url.Content("~/ProjectDocuments/Images/" + item.PicUrl)" alt="" width="100" />
         </td>
-        <td>
-            <a href="/CreepuSuits/Category/Product-Details/@item.Name">
-                <img src="~/ProjectDocuments/Images/@item.ProductId/Thumbs/@item.PicUrl" />
-            </a>
-        </td>
-        <td>
-            <a href="/CreepySuits/Category/Product-Details/@item.Name">Details</a>
-        </td>
+      
     </tr>
-}*@
+}
 
 </table>

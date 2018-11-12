@@ -28,9 +28,12 @@ namespace CreepySuits.Controllers
         public ActionResult Category(int id)
         {
             var category = iCategoryRepository.Find(id);
+            List<Product> ProductList = db.Products.Where(s=>s.CategoryId == id).ToList();
             ViewBag.category = category;
-            ViewBag.products = category.CategoryName.ToList();
-            //List<Product> ProductList;
+            ViewBag.products = ProductList;
+
+
+            
             //using (db)
             //{
             //    Category category = db.Categories.Where(x => x.CategoryName == name).FirstOrDefault();
@@ -40,7 +43,7 @@ namespace CreepySuits.Controllers
             //    ViewBag.CategoryName = prodcat.CategoryName;
 
             //}
-            return View();
+            return View(ProductList);
 
         }
 

@@ -209,11 +209,44 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811111531240_izi1.cs" />
+    <Compile Include="Migrations\201811111531240_izi1.Designer.cs">
+      <DependentUpon>201811111531240_izi1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811111551076_izi8.cs" />
+    <Compile Include="Migrations\201811111551076_izi8.Designer.cs">
+      <DependentUpon>201811111551076_izi8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121705403_1.cs" />
+    <Compile Include="Migrations\201811121705403_1.Designer.cs">
+      <DependentUpon>201811121705403_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121710044_2.cs" />
+    <Compile Include="Migrations\201811121710044_2.Designer.cs">
+      <DependentUpon>201811121710044_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121712118_3.cs" />
+    <Compile Include="Migrations\201811121712118_3.Designer.cs">
+      <DependentUpon>201811121712118_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121713030_5.cs" />
+    <Compile Include="Migrations\201811121713030_5.Designer.cs">
+      <DependentUpon>201811121713030_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121714378_6.cs" />
+    <Compile Include="Migrations\201811121714378_6.Designer.cs">
+      <DependentUpon>201811121714378_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811122005257_8.cs" />
+    <Compile Include="Migrations\201811122005257_8.Designer.cs">
+      <DependentUpon>201811122005257_8.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -308,6 +341,7 @@
     <Content Include="Views\Home\Browse.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Products\Category.cshtml" />
+    <Content Include="Views\List\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,6 +363,32 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811111531240_izi1.resx">
+      <DependentUpon>201811111531240_izi1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811111551076_izi8.resx">
+      <DependentUpon>201811111551076_izi8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121705403_1.resx">
+      <DependentUpon>201811121705403_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121710044_2.resx">
+      <DependentUpon>201811121710044_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121712118_3.resx">
+      <DependentUpon>201811121712118_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121713030_5.resx">
+      <DependentUpon>201811121713030_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121714378_6.resx">
+      <DependentUpon>201811121714378_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811122005257_8.resx">
+      <DependentUpon>201811122005257_8.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
