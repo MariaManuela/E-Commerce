@@ -17,18 +17,50 @@ namespace CreepySuits.Controllers
 {
     public class ProductsController : Controller
     {
+
         private ApplicationDbContext db = new ApplicationDbContext();
         private ICategoryRepository iCategoryRepository = new CategoryRepository();
+        private const int PageSize = 6;
         // GET: Products
+
         public ActionResult Index()
         {
+
             return View(db.Products.ToList());
         }
-
-        public ActionResult Category(int id)
+        
+        public ActionResult UserIndex(string id, int page = 1)
         {
+
+            List<Product> ProductList = db.Products.ToList();
+
+            string searchString = id;
+
+            var srchProd = from m in ProductList
+                           select m;
+
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                srchProd = srchProd.Where(s => s.Name.ToLower().Contains(searchString.ToLower()));
+                //ViewBag.srchprod = srchProd;
+            }
+
+            var nrObj = ProductList.Skip((page - 1) * PageSize).Take(PageSize).ToList();
+            ViewBag.totalPages = Math.Ceiling((double)ProductList.Count() / PageSize);
+            ViewBag.prod = nrObj;
+            
+            return PartialView("~/Views/Shared/_UserIndexView.cshtml", searchString);
+        }
+
+
+public ActionResult Category(int id, string categ)
+        {
+
             var category = iCategoryRepository.Find(id);
-            List<Product> ProductList = db.Products.Where(s=>s.CategoryId == id).ToList();
+        
+            List<Product> ProductList = db.Products./*Where(m => m.CategoryId == id).*/ToList();
+            
+             
             ViewBag.category = category;
             ViewBag.products = ProductList;
 
