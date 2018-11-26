@@ -38,23 +38,9 @@
                 </div>
             <div class="span8">
                 <div class="account pull-right">
-
-                    @*@using (Html.BeginForm("UserIndex", "Products", FormMethod.Get))
-                    {
-                        <p>
-
-                            Title:  <br />
-                            Search a product: @Html.TextBox("searchString")<br />
-
-
-                            <input type="submit" value="Search" class="search-button" />
-
-                        </p>
-
-
-
-                        
-                    }*@
+                    <div id="search-form">
+                        @{Html.RenderAction("Search", "Products");}
+                    </div>
 
 
 
