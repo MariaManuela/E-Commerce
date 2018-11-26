@@ -11,5 +11,7 @@ namespace CreepySuits.Repository
     {
         List<Category> FindAll();
         Category Find(int id);
+        List<Product> Search(string searchString);
+        
     }
 }

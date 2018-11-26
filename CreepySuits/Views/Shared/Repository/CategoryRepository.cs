@@ -23,6 +23,12 @@ namespace CreepySuits.Repository
            
         }
 
+        public List<Product> Search(string searchString)
+        {
+            var query = db.Products.Where(x => x.Name.Contains(searchString));
+            return query.ToList();
+        }
+
        
     }
 }

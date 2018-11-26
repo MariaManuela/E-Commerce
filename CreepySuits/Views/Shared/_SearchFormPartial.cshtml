@@ -1,0 +1,15 @@
+﻿@using CreepySuits.Models
+
+@using (Ajax.BeginForm("Search", "Products", FormMethod.Post,
+    new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST",
+        UpdateTargetId = "search-results"
+    }))
+{
+    <div>
+        @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </div>
+}

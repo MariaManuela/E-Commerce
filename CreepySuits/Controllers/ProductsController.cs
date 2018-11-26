@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using CreepySuits.Models;
 using CreepySuits.Repository;
+using CreepySuits.ViewModels;
 //using System.Data.Entity.Infrastructure;
 
 namespace CreepySuits.Controllers
@@ -28,29 +29,63 @@ namespace CreepySuits.Controllers
 
             return View(db.Products.ToList());
         }
-        
-        public ActionResult UserIndex(string id, int page = 1)
+
+        public ActionResult UserIndex(int page = 1)
         {
 
             List<Product> ProductList = db.Products.ToList();
 
-            string searchString = id;
-
-            var srchProd = from m in ProductList
-                           select m;
-
-            if(!String.IsNullOrEmpty(searchString))
-            {
-                srchProd = srchProd.Where(s => s.Name.ToLower().Contains(searchString.ToLower()));
-                //ViewBag.srchprod = srchProd;
-            }
-
             var nrObj = ProductList.Skip((page - 1) * PageSize).Take(PageSize).ToList();
             ViewBag.totalPages = Math.Ceiling((double)ProductList.Count() / PageSize);
             ViewBag.prod = nrObj;
-            
-            return PartialView("~/Views/Shared/_UserIndexView.cshtml", searchString);
+
+
+            return PartialView("~/Views/Shared/_UserIndexView.cshtml");
         }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return PartialView("~/Views/Shared/_SearchFormPartial.cshtml");
+        }
+
+        [HttpPost]
+        public ActionResult Search(string searchString)
+        {
+            if(searchString != null)
+            {
+                try
+                {
+                    var searchList = iCategoryRepository.Search(searchString);
+
+                    var model = new ProductViewModel()
+                    {
+                        Products = new List<Product>()
+                    };
+
+                    ViewBag.products = searchList;
+
+                    return PartialView("~/Views/Shared/_SearchResultPartial.cshtml");
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine("{0} Exception caught.", e);
+                }
+            }
+            return PartialView("Error");
+        }
+
+        //[HttpPost]
+        //public ActionResult Search(string searchString)
+        //{
+        //    var srchProd = from m in db.Products
+        //                   select m;
+        //    if(!String.IsNullOrEmpty(searchString))
+        //    {
+        //        srchProd = srchProd.Where(s => s.Name.ToLower().Contains(searchString.ToLower()));
+        //    }
+        //    return PartialView("~/Views/Shared/_SearchPost.cshtml", srchProd);
+        //}
 
 
 public ActionResult Category(int id, string categ)

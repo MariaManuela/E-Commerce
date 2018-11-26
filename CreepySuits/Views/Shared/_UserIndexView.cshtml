@@ -39,17 +39,24 @@
             <div class="span8">
                 <div class="account pull-right">
 
-                    @using (Html.BeginForm("UserIndex", "Products", FormMethod.Get))
+                    @*@using (Html.BeginForm("UserIndex", "Products", FormMethod.Get))
                     {
                         <p>
-                            Title: @Html.TextBox("searchString") <br />
+
+                            Title:  <br />
+                            Search a product: @Html.TextBox("searchString")<br />
+
+
                             <input type="submit" value="Search" class="search-button" />
 
                         </p>
 
-                    }
 
-                 
+
+                        
+                    }*@
+
+
 
                     @*<form method="POST" class="search_form">
 
@@ -103,13 +110,15 @@
                     <ul class="thumbnails listing-products">
                         <li class="span3">
                             <div class="product-box">
+                             
                                 @foreach (var i in (List<Product>)ViewBag.prod)
                                 {
-                                <span class="sale_tag"></span>
-                                <a href="product_detail.html"><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)"></a><br />
-                                <a href="product_detail.html" class="title">@i.Name</a><br />
-                                <a href="#" class="category">@i.Category</a>
-                                <p class="price">@i.Price</p>
+                                    <span class="sale_tag"></span>
+                                    <a href=""><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)"></a><br />
+                                    <a href="" class="title">@i.Name</a><br />
+                                    <a href="#" class="category">@i.Category</a>
+                                    <p class="price">@i.Price</p>
+                                    @Html.ActionLink("Details", "Details", new { id = i.ProductId })
                                 }
                             </div>
                         </li>
