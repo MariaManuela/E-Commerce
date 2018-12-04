@@ -37,19 +37,20 @@
 <body>
 
     <section class="homepage-slider" id="home-slider">
+        @*@{Html.RenderAction("Category", "Products");}*@
 
-        
         <div id="search-results">
 
         </div>
         <div class="flexslider">
-          
+
             <ul class="slides">
                 <li>
                     <img src="~/images/carousel/banner-1.jpg" alt="" />
 
                 </li>
                 @{Html.RenderAction("UserIndex", "Products");}
+                
 
 
 

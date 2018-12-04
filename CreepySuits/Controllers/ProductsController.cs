@@ -30,7 +30,7 @@ namespace CreepySuits.Controllers
             return View(db.Products.ToList());
         }
 
-        public ActionResult UserIndex(int page = 1)
+        public ActionResult UserIndex(int? id, int page = 1)
         {
 
             List<Product> ProductList = db.Products.ToList();
@@ -39,6 +39,25 @@ namespace CreepySuits.Controllers
             ViewBag.totalPages = Math.Ceiling((double)ProductList.Count() / PageSize);
             ViewBag.prod = nrObj;
 
+            //List<Category> CategoryList = db.Categories.ToList();
+            //ViewBag.ctg = CategoryList;
+          
+                var ctgList = iCategoryRepository.FindAll();
+                
+                var model = new CategoryViewModel()
+                {
+                    Categories = new List<Category>()
+                };
+
+
+                ViewBag.ctg = ctgList;
+
+            var prodList = iCategoryRepository.ProductByCategory(id);
+            var modelprd = new ProductViewModel()
+            {
+                Products = new List<Product>()
+            };
+            ViewBag.prod = prodList;
 
             return PartialView("~/Views/Shared/_UserIndexView.cshtml");
         }
@@ -72,49 +91,13 @@ namespace CreepySuits.Controllers
                     Console.WriteLine("{0} Exception caught.", e);
                 }
             }
+
+
             return PartialView("Error");
         }
 
-        //[HttpPost]
-        //public ActionResult Search(string searchString)
-        //{
-        //    var srchProd = from m in db.Products
-        //                   select m;
-        //    if(!String.IsNullOrEmpty(searchString))
-        //    {
-        //        srchProd = srchProd.Where(s => s.Name.ToLower().Contains(searchString.ToLower()));
-        //    }
-        //    return PartialView("~/Views/Shared/_SearchPost.cshtml", srchProd);
-        //}
+      
 
-
-public ActionResult Category(int id, string categ)
-        {
-
-            var category = iCategoryRepository.Find(id);
-        
-            List<Product> ProductList = db.Products./*Where(m => m.CategoryId == id).*/ToList();
-            
-             
-            ViewBag.category = category;
-            ViewBag.products = ProductList;
-
-
-            
-            //using (db)
-            //{
-            //    Category category = db.Categories.Where(x => x.CategoryName == name).FirstOrDefault();
-            //    string catId = category.CategoryId;
-            //    ProductList = db.Products.ToArray().Where(x => x.CategoryName == catId).Select(x => new Product()).ToList();
-            //    var prodcat = db.Products.Where(x => x.CategoryName == catId).FirstOrDefault();
-            //    ViewBag.CategoryName = prodcat.CategoryName;
-
-            //}
-            return View(ProductList);
-
-        }
-
-        
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {

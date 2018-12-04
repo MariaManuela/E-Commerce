@@ -10,8 +10,9 @@ namespace CreepySuits.Repository
     public interface ICategoryRepository
     {
         List<Category> FindAll();
-        Category Find(int id);
+        Category Find(int? id);
         List<Product> Search(string searchString);
+        List<Product> ProductByCategory(int? id);
         
     }
 }

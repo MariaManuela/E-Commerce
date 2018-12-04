@@ -16,11 +16,17 @@ namespace CreepySuits.Repository
         }
 
 
-        public Category Find(int id)
+        public Category Find(int? id)
         {
             
             return db.Categories.Find(id);
            
+        }
+
+        public List<Product> ProductByCategory(int? id)
+        {
+            var query = db.Products.Where(x => x.CategoryId.Equals(id));
+            return query.ToList();
         }
 
         public List<Product> Search(string searchString)
