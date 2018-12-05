@@ -52,12 +52,6 @@ namespace CreepySuits.Controllers
 
                 ViewBag.ctg = ctgList;
 
-            var prodList = iCategoryRepository.ProductByCategory(id);
-            var modelprd = new ProductViewModel()
-            {
-                Products = new List<Product>()
-            };
-            ViewBag.prod = prodList;
 
             return PartialView("~/Views/Shared/_UserIndexView.cshtml");
         }
@@ -96,7 +90,23 @@ namespace CreepySuits.Controllers
             return PartialView("Error");
         }
 
-      
+      public ActionResult Category(int? id)
+        {
+            if (id >= 0)
+            {
+                var prodCat = iCategoryRepository.ProductByCategory(id);
+
+                var modelprd = new ProductViewModel()
+                {
+                    Products = new List<Product>()
+                };
+
+                ViewBag.productcat = prodCat;
+                
+            }
+
+            return View();
+        }
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)

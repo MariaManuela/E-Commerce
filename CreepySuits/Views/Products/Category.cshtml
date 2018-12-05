@@ -1,0 +1,30 @@
+﻿@using CreepySuits.Models
+@using CreepySuits.ViewModels
+
+
+
+        <section>
+            <div class="row">
+                <div class="span9">
+                    <ul class="thumbnails listing-products">
+                        <li class="span3">
+                            <div class="product-box">
+
+                                @foreach (var i in (List<Product>)ViewBag.productcat)
+                                {
+                                    <span class="sale_tag"></span>
+                                    <a href=""><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)"></a><br />
+                                    <a href="" class="title">@i.Name</a><br />
+                                    <a href="#" class="category">@i.Category</a>
+                                    <p class="price">@i.Price</p>
+                                    @Html.ActionLink("Details", "Details", new { id = i.ProductId })
+                                }
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+ 

@@ -410,6 +410,7 @@
     <Content Include="Views\Shared\_UserIndexView.cshtml" />
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Shared\_SearchResultPartial.cshtml" />
+    <Content Include="Views\Products\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

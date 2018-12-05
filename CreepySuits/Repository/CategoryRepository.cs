@@ -23,9 +23,16 @@ namespace CreepySuits.Repository
            
         }
 
+     
+
         public List<Product> ProductByCategory(int? id)
         {
-            var query = db.Products.Where(x => x.CategoryId.Equals(id));
+            
+            var query = db.Products.ToArray().Where(x => x.CategoryId == id);
+   
+
+
+            
             return query.ToList();
         }
 

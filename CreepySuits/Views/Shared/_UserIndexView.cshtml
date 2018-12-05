@@ -96,7 +96,7 @@
                     <ul class="thumbnails listing-products">
                         <li class="span3">
                             <div class="product-box">
-                             
+                                
                                 @foreach (var i in (List<Product>)ViewBag.prod)
                                 {
                                     <span class="sale_tag"></span>
@@ -132,14 +132,11 @@
                             @foreach (var l in (List<Category>)ViewBag.ctg)
                             {
 
-                                <li><a href="@Url.Action("UserIndex","Products", new { id = l })">@l.CategoryName</a></li>
+                                <li><a href="@Url.Action("Category","Products", new { id = l.CategoryId })">@l.CategoryName</a></li>
                                 
                             }
 
                             
-                            
-
-
                         </ul>
                         <br />
                         <ul class="nav nav-list below">
