@@ -30,7 +30,7 @@ namespace CreepySuits.Controllers
             return View(db.Products.ToList());
         }
 
-        public ActionResult UserIndex(int? id, int page = 1)
+        public ActionResult UserIndex(string category, int? id, int page = 1)
         {
 
             List<Product> ProductList = db.Products.ToList();
@@ -41,16 +41,19 @@ namespace CreepySuits.Controllers
 
             //List<Category> CategoryList = db.Categories.ToList();
             //ViewBag.ctg = CategoryList;
-          
-                var ctgList = iCategoryRepository.FindAll();
-                
+              var ctgList = iCategoryRepository.FindAll();
+
                 var model = new CategoryViewModel()
                 {
                     Categories = new List<Category>()
                 };
 
-
                 ViewBag.ctg = ctgList;
+
+                var prodList = iCategoryRepository.Category(category);
+                ViewBag.f = prodList;
+
+
 
 
             return PartialView("~/Views/Shared/_UserIndexView.cshtml");
@@ -90,23 +93,17 @@ namespace CreepySuits.Controllers
             return PartialView("Error");
         }
 
-      public ActionResult Category(int? id)
+        [HttpPost]
+        public ActionResult Filter(string category)
         {
-            if (id >= 0)
-            {
-                var prodCat = iCategoryRepository.ProductByCategory(id);
 
-                var modelprd = new ProductViewModel()
-                {
-                    Products = new List<Product>()
-                };
 
-                ViewBag.productcat = prodCat;
-                
-            }
+            
+
 
             return View();
         }
+
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)

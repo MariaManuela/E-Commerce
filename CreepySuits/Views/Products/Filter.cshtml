@@ -1,0 +1,17 @@
+﻿@using CreepySuits.Models
+@{
+    ViewBag.Title = "Filter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Filter</h2>
+
+ @foreach (var i in (List<Product>)ViewBag.f)
+    {
+        <span class="sale_tag"></span>
+        <a href=""><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)" width="100"></a><br />
+        <a href="" class="title">@i.Name</a><br />
+        <a href="#" class="category">@i.Category</a>
+        <p class="price">@i.Price</p>
+        @Html.ActionLink("Details", "Details", new { id = i.ProductId })
+    }

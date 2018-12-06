@@ -132,11 +132,19 @@
                             @foreach (var l in (List<Category>)ViewBag.ctg)
                             {
 
-                                <li><a href="@Url.Action("Category","Products", new { id = l.CategoryId })">@l.CategoryName</a></li>
-                                
+                                @Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)
+
+
                             }
 
-                            
+                            @foreach (var i in (List<Product>)ViewBag.f)
+                            {
+                                @i.Name
+                            }
+
+
+
+
                         </ul>
                         <br />
                         <ul class="nav nav-list below">

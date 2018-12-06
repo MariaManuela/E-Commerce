@@ -411,6 +411,8 @@
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Shared\_SearchResultPartial.cshtml" />
     <Content Include="Views\Products\Category.cshtml" />
+    <Content Include="Views\Shared\_Filter.cshtml" />
+    <Content Include="Views\Products\Filter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

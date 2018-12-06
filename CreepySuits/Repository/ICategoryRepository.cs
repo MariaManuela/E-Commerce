@@ -12,7 +12,7 @@ namespace CreepySuits.Repository
         List<Category> FindAll();
         Category Find(int? id);
         List<Product> Search(string searchString);
-        List<Product> ProductByCategory(int? id);
+        List<Product> Category(string category);
         
         
     }
