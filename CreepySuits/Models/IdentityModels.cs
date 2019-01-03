@@ -31,11 +31,12 @@ namespace CreepySuits.Models
         public ApplicationDbContext()
             : base("master", throwIfV1Schema: false)
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
 
         public static ApplicationDbContext Create()
         {
-
+            
             return new ApplicationDbContext();
         }
         public DbSet<Product> Products { get; set; }

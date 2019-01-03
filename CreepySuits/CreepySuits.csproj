@@ -208,6 +208,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -247,6 +248,22 @@
     <Compile Include="Migrations\201811122005257_8.Designer.cs">
       <DependentUpon>201811122005257_8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901031544275_newYear.cs" />
+    <Compile Include="Migrations\201901031544275_newYear.Designer.cs">
+      <DependentUpon>201901031544275_newYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901031548172_newYear3.cs" />
+    <Compile Include="Migrations\201901031548172_newYear3.Designer.cs">
+      <DependentUpon>201901031548172_newYear3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901031604422_newYear4.cs" />
+    <Compile Include="Migrations\201901031604422_newYear4.Designer.cs">
+      <DependentUpon>201901031604422_newYear4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901031735051_newYear5.cs" />
+    <Compile Include="Migrations\201901031735051_newYear5.Designer.cs">
+      <DependentUpon>201901031735051_newYear5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -265,6 +282,7 @@
     <Compile Include="Repository\ICategoryRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
@@ -281,6 +299,7 @@
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\CarouselButton.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -297,6 +316,10 @@
     <Content Include="images\bg.png" />
     <Content Include="images\carousel\banner-1.jpg" />
     <Content Include="images\carousel\banner-2.jpg" />
+    <Content Include="images\carousel\banner.jpg" />
+    <Content Include="images\carousel\banner1.jpg" />
+    <Content Include="images\carousel\images.jpg" />
+    <Content Include="images\carousel\visual-featured-halloween-banner-768x427.jpg" />
     <Content Include="images\clients\1.png" />
     <Content Include="images\clients\14.png" />
     <Content Include="images\clients\2.png" />
@@ -396,10 +419,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Delete.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
@@ -407,12 +428,15 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Browse.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_UserIndexView.cshtml" />
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Shared\_SearchResultPartial.cshtml" />
     <Content Include="Views\Products\Category.cshtml" />
     <Content Include="Views\Shared\_Filter.cshtml" />
     <Content Include="Views\Products\Filter.cshtml" />
+    <Content Include="Views\Products\UserIndex.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Checkout\Complete.cshtml" />
+    <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -459,6 +483,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811122005257_8.resx">
       <DependentUpon>201811122005257_8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031544275_newYear.resx">
+      <DependentUpon>201901031544275_newYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031548172_newYear3.resx">
+      <DependentUpon>201901031548172_newYear3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031604422_newYear4.resx">
+      <DependentUpon>201901031604422_newYear4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031735051_newYear5.resx">
+      <DependentUpon>201901031735051_newYear5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

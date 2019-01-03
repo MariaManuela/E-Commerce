@@ -1,87 +1,129 @@
-﻿@using CreepySuits.Repository
-@using CreepySuits.Models
-@model IEnumerable<CreepySuits.Models.UserIndexModel>
-
-
-@{
-        ICategoryRepository icategoryRepository = new CategoryRepository();
-    }
+﻿
 
 <!DOCTYPE html>
 <html>
 <head>
-  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
     <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">
-
     <link href="~/Content/bootstrappage.css" rel="stylesheet" />
 
     <!-- global styles -->
     <link href="~/Content/flexslider.css" rel="stylesheet" />
     <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/CarouselButton.css" rel="stylesheet" />
+    
 
     <!-- scripts -->
     <script src="~/Scripts/jquery-1.7.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/superfish.js"></script>
     <script src="~/Scripts/jquery.scrolltotop.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
 </head>
-
 <body>
 
-    <section class="homepage-slider" id="home-slider">
-        @*@{Html.RenderAction("Category", "Products");}*@
+    <div class="w3-container">
+        @*<h2>@Html.ActionLink("Creepy Suits", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</h2>*@
+        <img src="~/images/logo.png" style="width:200px" class="site_logo" alt="">
 
-        <div id="search-results">
+        <div class="w3-bar w3-black">
+
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("About", "About", "Home")
+            @Html.ActionLink("Contact", "Contact", "Home")
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            @Html.Partial("_LoginPartial")
 
         </div>
-        <div class="flexslider">
+     
 
-            <ul class="slides">
-                <li>
-                    <img src="~/images/carousel/banner-1.jpg" alt="" />
-
-                </li>
-                @{Html.RenderAction("UserIndex", "Products");}
-               
-
-
-
-                <li>
-                    <img src="~/images/carousel/banner-2.jpg" alt="" />
-
-                    <div class="intro">
-                        <h1>Mid season sale</h1>
-                        <p><span>Up to 50% Off</span></p>
-                        <p><span>On selected items online and in stores</span></p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-    </section>
-
-
-
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div id="wrapper" class="container">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="container">
+                        <img src="~/images/carousel/visual-featured-halloween-banner-768x427.jpg" style="width: 1500px; height: 462px; position:relative; margin-left: 15px; margin-right: 10px">
+                        <button class="btn" type="button">@Html.ActionLink("Go shopping >>", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="~/images/carousel/banner1.jpg" style="width: 1500px; height: 462px; position:relative; margin-left: 15px; margin-right: 10px">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/images/carousel/banner.jpg" style="width: 1500px; height: 462px; position:relative; margin-left: 15px; margin-right: 10px">
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+
+        <div class="container body-content">
+            @*@{ Html.RenderAction("UserIndex", "Products")}*@
+
+            <hr />
+            <footer>
+                @RenderBody()
+
+            </footer>
+            <div class="container">
+
+                @for (int i = 0; i < ViewBag.totalPages; i++)
+                {
+                    
+                       <a href="@Url.Action("UserIndex", "Products", new { page = i })">@i</a>
+                       
+
+                }
+            </div>
+        </div>
+      
+        <script src="~/Scripts/common.js"></script>
+        @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+        @RenderSection("scripts", required: false)
+
+    </div>
 </body>
 </html>
 

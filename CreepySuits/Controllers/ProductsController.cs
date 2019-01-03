@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -37,7 +38,7 @@ namespace CreepySuits.Controllers
 
             var nrObj = ProductList.Skip((page - 1) * PageSize).Take(PageSize).ToList();
             ViewBag.totalPages = Math.Ceiling((double)ProductList.Count() / PageSize);
-            ViewBag.prod = nrObj;
+            ViewBag.product = nrObj;
 
             //List<Category> CategoryList = db.Categories.ToList();
             //ViewBag.ctg = CategoryList;
@@ -56,7 +57,7 @@ namespace CreepySuits.Controllers
 
 
 
-            return PartialView("~/Views/Shared/_UserIndexView.cshtml");
+            return View();
         }
 
         [HttpGet]

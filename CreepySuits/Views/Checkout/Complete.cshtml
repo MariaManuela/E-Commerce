@@ -1,0 +1,14 @@
+﻿@model CreepySuits.Models.Order
+@{
+    ViewBag.Title = "Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Checkout Complete</h2>
+<p>Thanks for your order!</p>
+<p>
+    How about shopping for some more items in our
+    @Html.ActionLink("store",
+"UserIndex", "Products")
+</p>
+

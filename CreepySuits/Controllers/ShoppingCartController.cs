@@ -14,6 +14,7 @@ namespace CreepySuits.Controllers
         // GET: ShoppingCart
         public ActionResult Index()
         {
+            
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             var viewModel = new ShoppingCartViewModel
@@ -21,19 +22,22 @@ namespace CreepySuits.Controllers
                 CartItems = cart.GetCartItems(),
                 CartTotal = cart.GetTotal()
             };
+            
             return View(viewModel);
         }
 
         //GET: /Store/AddToCart/5
         public ActionResult AddToCart(int? id)
         {
-            var addedProduct = db.Products
-                  .Single(product => product.ProductId == id);
+            //var addedProduct = db.Products
+            //      .Single(product => product.ProductId == id);
+            var addedProduct = db.Products.SingleOrDefault(p => p.ProductId == id);
 
             // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             cart.AddToCart(addedProduct);
+            
 
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");
@@ -47,8 +51,10 @@ namespace CreepySuits.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             // Get the name of the album to display confirmation
-            string productName = db.Cart
-                .Single(item => item.RecordId == id).Product.Name;
+            //string productName = db.Cart
+            //    .SingleOrDefault(item => item.RecordId == id).Product.Name;
+
+            var productId = db.Products.SingleOrDefault(p => p.ProductId == id);
 
             // Remove from cart
             int itemCount = cart.RemoveFromCart(id);
@@ -56,8 +62,8 @@ namespace CreepySuits.Controllers
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel
             {
-                Message = Server.HtmlEncode(productName) +
-                    " has been removed from your shopping cart.",
+                //Message = Server.HtmlEncode(productId) +
+                //    " has been removed from your shopping cart.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,

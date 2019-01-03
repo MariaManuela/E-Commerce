@@ -1,4 +1,5 @@
-﻿@model CreepySuits.ViewModels.ShoppingCartViewModel
+﻿
+@model CreepySuits.ViewModels.ShoppingCartViewModel
 
 @{
     ViewBag.Title = "Shopping cart";
@@ -56,24 +57,29 @@
     </tr>
     @foreach (var item in Model.CartItems)
     {
-        <tr id="row-@item.RecordId">
-            <td>
-                @Html.ActionLink(item.Product.Name,"Details", "Home", new { id = item.ProductId }, null)
-            </td>
-            <td>
-                @item.Product.Price
-            </td>
-            <td id="item-count-@item.RecordId">
-                @item.Count
-            </td>
-            <td>
-                <a href="#" class="RemoveLink"
-                   data-id="@item.RecordId">
-                    Remove
-                    from cart
-                </a>
-            </td>
-        </tr>
+    <tr id="row-@item.RecordId">
+        @*<td>
+           @Html.ActionLink("Details", "Details", "Details", new { id = item.Product.ProductId }, "")
+        </td>*@
+
+        <td>
+            @Html.DisplayFor(model => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Price)
+        </td>
+        <td id="item-count-@item.RecordId">
+            @Html.DisplayFor(model => item.Count)
+        </td>
+        <td>
+            <a href="#" class="RemoveLink"
+               data-id="@item.RecordId">
+                Remove
+                from cart
+            </a>
+        </td>
+    </tr>
+       
     }
     <tr>
         <td>

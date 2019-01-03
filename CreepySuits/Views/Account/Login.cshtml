@@ -1,9 +1,15 @@
 ﻿@using CreepySuits.Models
-@model LoginViewModel
+@model CreepySuits.Models.LoginViewModel
 @{
     ViewBag.Title = "Log in";
 }
-
+<style>
+    .ceva{
+        font-size: unset;
+        text-decoration-color: white;
+    }
+</style>
+<div class="ceva">
 <h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-8">
@@ -58,7 +64,7 @@
         </section>
     </div>
 </div>
-
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

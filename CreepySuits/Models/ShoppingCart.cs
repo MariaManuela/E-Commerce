@@ -25,44 +25,48 @@ namespace CreepySuits.Models
 
         public void AddToCart(Product product)
         {
-            var cartItem = db.Cart.SingleOrDefault(
-                c => c.CartId == ShoppingCartId
-                && c.ProductId == product.ProductId);
-
-            if(cartItem == null)
+            if (product != null)
             {
-                cartItem = new Cart
+                var cartItem = db.Cart.FirstOrDefault(
+                    c => c.CartId == ShoppingCartId
+                    && c.ProductId == product.ProductId && c.Name == product.Name && c.Price == product.Price);
+
+                if (cartItem == null)
                 {
-                    ProductId = product.ProductId,
-                    CartId = ShoppingCartId,
-                    Count = 1,
-                    DateCreated = DateTime.Now
+                    cartItem = new Cart
+                    {
+                        Name = product.Name,
+                        Price = product.Price,
+                        ProductId = product.ProductId,
+                        CartId = ShoppingCartId,
+                        Count = 1,
+                        DateCreated = DateTime.Now
 
-                };
+                    };
 
-                db.Cart.Add(cartItem);
+                    db.Cart.Add(cartItem);
+                }
+                else
+                {
+                    //If the item does exist in the cart,
+                    //then add one to the quantity
+                    cartItem.Count++;
+
+                }
+
+                db.SaveChanges();
             }
-            else
-            {
-                //If the item does exist in the cart,
-                //then add one to the quantity
-                cartItem.Count++;
-            }
-
-            db.SaveChanges();
         }
 
         public int RemoveFromCart(int? id)
         {
-            var cartItem = db.Cart.Single(
+            var cartItem = db.Cart.SingleOrDefault(
                 cart => cart.CartId == ShoppingCartId
                 && cart.RecordId == id);
-
-            int itemCount = 0;
-
-            if(cartItem != null)
-            {
-                if(cartItem.Count >1)
+           
+                int itemCount = 0;
+             
+                if (cartItem.Count > 1)
                 {
                     cartItem.Count--;
                     itemCount = cartItem.Count;
@@ -73,8 +77,8 @@ namespace CreepySuits.Models
                 }
 
                 db.SaveChanges();
-            }
-
+            
+        
             return itemCount;
         }
 
@@ -90,9 +94,10 @@ namespace CreepySuits.Models
 
             db.SaveChanges();
         }
-
+    
         public List<Cart> GetCartItems()
         {
+
             return db.Cart.Where(
                 cart => cart.CartId == ShoppingCartId).ToList();
         }
