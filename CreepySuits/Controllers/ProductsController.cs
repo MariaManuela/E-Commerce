@@ -31,7 +31,7 @@ namespace CreepySuits.Controllers
             return View(db.Products.ToList());
         }
 
-        public ActionResult UserIndex(string category, int? id, int page = 1)
+        public ActionResult UserIndex(string category, int? id, int page = 0)
         {
 
             List<Product> ProductList = db.Products.ToList();
@@ -51,14 +51,31 @@ namespace CreepySuits.Controllers
 
                 ViewBag.ctg = ctgList;
 
-                var prodList = iCategoryRepository.Category(category);
-                ViewBag.f = prodList;
 
 
 
 
             return View();
         }
+
+        [ChildActionOnly]
+        public ActionResult CategoryMenu()
+        {
+            var categories = db.Categories.ToList();
+            return PartialView(categories);
+        }
+
+        public ActionResult Browse(string category)
+        {
+         
+            //var categoryModel = new Category { CategoryName = category};
+            var categoryModel = db.Categories.Include(s=>s.Products).SingleOrDefault(c => c.CategoryName == category);
+
+            var prodList = iCategoryRepository.Category(category);
+            ViewBag.f = prodList;
+            return View(categoryModel);
+        }
+
 
         [HttpGet]
         public ActionResult Search()

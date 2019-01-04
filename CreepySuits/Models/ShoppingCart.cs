@@ -82,6 +82,18 @@ namespace CreepySuits.Models
             return itemCount;
         }
 
+        public void ClearCart()
+        {
+            var cartItemsCheckout = db.Cart.ToList();
+
+            foreach(var cartItemCheckout in cartItemsCheckout)
+            {
+                db.Cart.Remove(cartItemCheckout);
+            }
+
+            db.SaveChanges();
+        }
+
         public void EmptyCart()
         {
             var cartItems = db.Cart.Where(

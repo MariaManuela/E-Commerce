@@ -1,4 +1,4 @@
-﻿@model CreepySuits.ViewModels.ShoppingCartViewModel
+﻿@model CreepySuits.Models.Order
 
 
 @{
@@ -19,20 +19,7 @@
         <legend>Shipping Information</legend>
         @Html.EditorForModel()
     </fieldset>
-    <fieldset>
-        <legend>Payment</legend>
-        <p>
-            We're running a promotion: all items are free
-            with the promo code: "FREE"
-        </p>
-        <div class="editor-label">
-            @Html.Label("Promo Code")
-        </div>
-        <div class="editor-field">
-            @Html.TextBox("PromoCode")
-        </div>
-    </fieldset>
-
+ 
 
     @Html.ActionLink("SUBMIT","Complete", "Checkout" )
 }

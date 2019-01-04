@@ -29,7 +29,8 @@ else
 
 @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Client"))
 {
-    @Html.ActionLink("Cart", "AddToCart", "ShoppingCart")
+    {Html.RenderAction("CartSummary", "ShoppingCart"); }
+    { Html.RenderAction("Search", "Products"); }
     @Html.ActionLink("All Products", "UserIndex", "Products")
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {

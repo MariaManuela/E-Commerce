@@ -1,5 +1,5 @@
 ﻿@using CreepySuits.Models
-@model CreepySuits.Models.Product
+@model CreepySuits.ViewModels.ProductViewModel
 
 @*@{
     ViewBag.Title = "UserIndex";
@@ -44,8 +44,7 @@
             <div class="span9">
                 <ul class="thumbnails listing-products">
                     <li class="span3">
-                        <div class="product-box">
-
+                        
                             @foreach (var i in (List<Product>)ViewBag.product)
                             {
                                 <span class="sale_tag"></span>
@@ -59,7 +58,6 @@
                                 </p>
                             }
 
-                        </div>
                     </li>
                   
                 </ul>
@@ -75,28 +73,19 @@
                         @foreach (var l in (List<Category>)ViewBag.ctg)
                         {
 
-                            @Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)
+                            @*@Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)*@
+                        <li><a href="/Products/Browse?category=@l.CategoryName">@l.CategoryName</a></li>
 
 
                         }
 
-                        @foreach (var i in (List<Product>)ViewBag.f)
-                        {
-                            @i.Name
-                        }
-
+                  
 
 
 
                     </ul>
                     <br />
-                    <ul class="nav nav-list below">
-                        <li class="nav-header">MANUFACTURES</li>
-                        <li><a href="products.html">Adidas</a></li>
-                        <li><a href="products.html">Nike</a></li>
-                        <li><a href="products.html">Dunlop</a></li>
-                        <li><a href="products.html">Yamaha</a></li>
-                    </ul>
+                  
                 </div>
 
 

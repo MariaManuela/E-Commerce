@@ -139,3 +139,4 @@ E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.newYear.r
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.newYear3.resources
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.newYear4.resources
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.newYear5.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.sdfghjm.resources

@@ -9,6 +9,7 @@ namespace CreepySuits.ViewModels
     public class ProductViewModel
     {
         public List<Product> Products { get; set; }
+        public Product Product { get; set; }
         public decimal SearchResults { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using CreepySuits.ViewModels;
 
 
 namespace CreepySuits.Controllers
@@ -12,9 +12,9 @@ namespace CreepySuits.Controllers
     [Authorize]
     public class CheckoutController : Controller
     {
-        LoginViewModel login = new LoginViewModel();
+  
         private ApplicationDbContext db = new ApplicationDbContext();
-        const string PromoCode = "FREE";
+       // const string PromoCode = "FREE";
         //
         // GET: /Checkout/AddressAndPayment
         public ActionResult AddressAndPayment()
@@ -31,13 +31,13 @@ namespace CreepySuits.Controllers
 
             try
             {
-                if (string.Equals(values["PromoCode"], PromoCode,
-                    StringComparison.OrdinalIgnoreCase) == false)
-                {
-                    return View(order);
-                }
-                else
-                {
+                //if (string.Equals(values["PromoCode"], PromoCode,
+                //    StringComparison.OrdinalIgnoreCase) == false)
+                //{
+                //    return View(order);
+                //}
+                //else
+               // {
                     order.Email = User.Identity.Name;
                     order.OrderDate = DateTime.Now;
 
@@ -50,7 +50,7 @@ namespace CreepySuits.Controllers
 
                     return RedirectToAction("Complete",
                         new { id = order.OrderId });
-                }
+               // }
             }
             catch
             {
@@ -62,7 +62,7 @@ namespace CreepySuits.Controllers
         // GET: /Checkout/Complete
         public ActionResult Complete(int? id)
         {
-            
+            var cart = ShoppingCart.GetCart(this.HttpContext);
             // Validate customer owns this order
             bool isValid = db.Order.Any(
                 o => 
@@ -70,6 +70,7 @@ namespace CreepySuits.Controllers
 
             if (isValid)
             {
+                cart.ClearCart();
                 return View(id);
             }
             else
