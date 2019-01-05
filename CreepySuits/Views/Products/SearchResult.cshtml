@@ -1,0 +1,29 @@
+﻿@using CreepySuits.Models
+@{
+    ViewBag.Title = "SearchResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-3">
+        @if (ViewBag.products == null)
+        {
+            <h3 class="text-error">No items matched your search query!</h3>
+
+        }
+        else
+        {
+            foreach (var i in (List<Product>)ViewBag.products)
+            {
+                <span class="sale_tag"></span>
+                <a href=""><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)" width="100"></a><br />
+                <a href="" class="title">@i.Name</a><br />
+                <a href="#" class="category">@i.Category</a>
+                <p class="price">@i.Price</p>
+                @Html.ActionLink("Product Details", "ProductDetails", new { id = i.ProductId })
+                <p class="button">
+                    @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = i.ProductId }, "")
+                </p>
+            }
+        }
+    </div>
+</div>

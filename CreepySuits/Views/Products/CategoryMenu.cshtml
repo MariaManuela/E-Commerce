@@ -2,12 +2,8 @@
 <ul id="categories">
     @foreach (var category in Model)
     {
-        <tr>
-
-           <td> @Html.ActionLink(category.CategoryName,
-            "Browse", "Products",
-            new { Category = category.CategoryName }, null)
-           </td>
-        </tr>
-}
+            @Html.ActionLink(category.CategoryName,
+             "Browse", "Products",
+             new { Category = category.CategoryName }, null)
+    }
 </ul>

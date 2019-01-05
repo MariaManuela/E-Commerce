@@ -29,11 +29,13 @@ else
 
 @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Client"))
 {
-    {Html.RenderAction("CartSummary", "ShoppingCart"); }
-    { Html.RenderAction("Search", "Products"); }
+    { Html.RenderAction("CartSummary", "ShoppingCart"); }
+
     @Html.ActionLink("All Products", "UserIndex", "Products")
+    { Html.RenderAction("Search", "Products"); }
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
+
         @Html.AntiForgeryToken()
 
         <ul class="nav navbar-nav navbar-right">
@@ -44,8 +46,6 @@ else
 
 
         </ul>
-
-
 
     }
 

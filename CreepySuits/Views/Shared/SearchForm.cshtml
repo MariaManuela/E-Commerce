@@ -1,6 +1,6 @@
 ﻿@using CreepySuits.Models
 
-@using (Ajax.BeginForm("Search", "Products", FormMethod.Post,
+@using (Ajax.BeginForm("SearchResult", "Products", FormMethod.Post,
     new AjaxOptions
     {
         InsertionMode = InsertionMode.Replace,
@@ -13,3 +13,5 @@
         <input type="submit" value="Search" />
     </div>
 }
+
+

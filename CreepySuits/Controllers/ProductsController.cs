@@ -31,14 +31,17 @@ namespace CreepySuits.Controllers
             return View(db.Products.ToList());
         }
 
-        public ActionResult UserIndex(string category, int? id, int page = 0)
+        public ActionResult UserIndex(string category, int? id, int page = 1)
         {
 
             List<Product> ProductList = db.Products.ToList();
 
             var nrObj = ProductList.Skip((page - 1) * PageSize).Take(PageSize).ToList();
             ViewBag.totalPages = Math.Ceiling((double)ProductList.Count() / PageSize);
-            ViewBag.product = nrObj;
+            for (int i = 1; i < ViewBag.totalPages; i++)
+            {
+                ViewBag.product = nrObj;
+            }
 
             //List<Category> CategoryList = db.Categories.ToList();
             //ViewBag.ctg = CategoryList;
@@ -77,14 +80,13 @@ namespace CreepySuits.Controllers
         }
 
 
-        [HttpGet]
         public ActionResult Search()
         {
-            return PartialView("~/Views/Shared/_SearchFormPartial.cshtml");
+            return PartialView("SearchForm");
         }
 
         [HttpPost]
-        public ActionResult Search(string searchString)
+        public ActionResult SearchResult(string searchString)
         {
             if(searchString != null)
             {
@@ -99,7 +101,7 @@ namespace CreepySuits.Controllers
 
                     ViewBag.products = searchList;
 
-                    return PartialView("~/Views/Shared/_SearchResultPartial.cshtml");
+                    return PartialView(model);
                 }
                 catch(Exception e)
                 {
@@ -112,7 +114,7 @@ namespace CreepySuits.Controllers
         }
 
         [HttpPost]
-        public ActionResult Filter(string category)
+        public ActionResult Pagination(int page = 1)
         {
 
 
@@ -122,6 +124,19 @@ namespace CreepySuits.Controllers
             return View();
         }
 
+        public ActionResult ProductDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)

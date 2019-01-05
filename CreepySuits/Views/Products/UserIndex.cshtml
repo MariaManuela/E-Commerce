@@ -36,6 +36,18 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+    </style>
 </head>
 <body>
 
@@ -44,22 +56,22 @@
             <div class="span9">
                 <ul class="thumbnails listing-products">
                     <li class="span3">
-                        
-                            @foreach (var i in (List<Product>)ViewBag.product)
-                            {
-                                <span class="sale_tag"></span>
-                                <a href=""><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)"></a><br />
-                                <a href="" class="title">@i.Name</a><br />
-                                <a href="#" class="category">@i.Category</a>
-                                <p class="price">@i.Price</p>
-                                @Html.ActionLink("Details", "Details", new { id = i.ProductId })
-                                <p class="button">
-                                    @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = i.ProductId }, "")
-                                </p>
-                            }
+
+                        @foreach (var i in (List<Product>)ViewBag.product)
+                        {
+                            <span class="sale_tag"></span>
+                            <a href=""><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)" width="100"></a><br />
+                            <a href="" class="title">@i.Name</a><br />
+                            <a href="#" class="category">@i.Category</a>
+                            <p class="price">@i.Price</p>
+                            @Html.ActionLink("Product Details", "ProductDetails", new { id = i.ProductId })
+                            <p class="button">
+                                @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = i.ProductId }, "")
+                            </p>
+                        }
 
                     </li>
-                  
+
                 </ul>
                 <hr>
 
@@ -74,25 +86,40 @@
                         {
 
                             @*@Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)*@
-                        <li><a href="/Products/Browse?category=@l.CategoryName">@l.CategoryName</a></li>
-
+                            <li><a href="/Products/Browse?category=@l.CategoryName">@l.CategoryName</a></li>
+                      
 
                         }
 
-                  
+
 
 
 
                     </ul>
                     <br />
-                  
+
                 </div>
 
 
             </div>
         </div>
     </section>
+    <div class="container">
+        <div class="pagination">
+            @for (int i = 1; i < ViewBag.totalPages; i++)
+            {
 
+                @*<a href="@Url.Action("UserIndex", "Products", new { page = i })">@i</a>*@
+                <a href="/Products/UserIndex?page=1">&laquo;</a>
+                <a href="/Products/UserIndex?page=1">1</a>
+
+                <a href="/Products/UserIndex?page=2">2</a>
+
+                <a href="/Products/UserIndex?page=2">&raquo;</a>
+
+            }
+        </div>
+    </div>
 
     <script src="~/Scripts/common.js"></script>
 </body>

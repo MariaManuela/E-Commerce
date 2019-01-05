@@ -432,10 +432,7 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Browse.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
-    <Content Include="Views\Shared\_SearchResultPartial.cshtml" />
     <Content Include="Views\Products\Category.cshtml" />
-    <Content Include="Views\Shared\_Filter.cshtml" />
     <Content Include="Views\Products\Filter.cshtml" />
     <Content Include="Views\Products\UserIndex.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
@@ -444,6 +441,9 @@
     <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
     <Content Include="Views\Products\CategoryMenu.cshtml" />
     <Content Include="Views\Products\Browse.cshtml" />
+    <Content Include="Views\Shared\SearchForm.cshtml" />
+    <Content Include="Views\Products\SearchResult.cshtml" />
+    <Content Include="Views\Products\ProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
