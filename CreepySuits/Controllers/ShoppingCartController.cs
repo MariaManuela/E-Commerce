@@ -81,6 +81,8 @@ namespace CreepySuits.Controllers
             ViewData["CartCount"] = cart.GetCount();
             return PartialView("CartSummary");
         }
+
+      
     }
 }
     

@@ -1,0 +1,13 @@
+﻿@using CreepySuits.Models
+@model IEnumerable<CreepySuits.Models.GenderAgeCategory>
+
+<ul id="ageCategories">
+    @foreach (var c in Model)
+    {
+        @Html.ActionLink(c.GenderAgeCategoryName,
+         "BrowseGenderCategory", "Products",
+         new { GenderAgeCategory = c.GenderAgeCategoryName }, null)
+    }
+</ul>
+
+

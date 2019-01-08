@@ -32,6 +32,7 @@ else
     { Html.RenderAction("CartSummary", "ShoppingCart"); }
 
     @Html.ActionLink("All Products", "UserIndex", "Products")
+    @Html.ActionLink("Order History", "OrderHistory", "Products")
     { Html.RenderAction("Search", "Products"); }
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<CreepySuits.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "OrderHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderHistory</h2>
+
+@foreach(var i in Model)
+{
+    <tr>
+        <th>
+            @i.OrderId
+        </th>
+    </tr>
+}

@@ -1,0 +1,36 @@
+﻿@using CreepySuits.Models
+@model CreepySuits.Models.Order
+
+@{
+    ViewBag.Title = "OrderHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderHistory</h2>
+<table id="ordered-Table">
+    <tr>
+        <th>
+            Order Id:
+        </th>
+        <th>
+            Order Date:        </th>
+        <th>
+            Total cost:
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var i in (List<Order>)ViewBag.or)
+    {
+        <tr>
+            <th>
+                @Html.ActionLink("Number" +i.OrderId,"Product", "ProductDetails", new { id = i.Product.ProductId }, "")
+            </th>
+            <th>
+                @i.OrderDate
+            </th>
+            <th>
+                @i.Total
+            </th>
+        </tr>
+    }
+</table>

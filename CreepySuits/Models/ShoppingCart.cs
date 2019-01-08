@@ -8,7 +8,7 @@ namespace CreepySuits.Models
 {
     public class ShoppingCart
     {
-       ApplicationDbContext db = new ApplicationDbContext();
+        ApplicationDbContext db = new ApplicationDbContext();
         string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
         public static ShoppingCart GetCart(HttpContextBase context)
@@ -63,22 +63,22 @@ namespace CreepySuits.Models
             var cartItem = db.Cart.SingleOrDefault(
                 cart => cart.CartId == ShoppingCartId
                 && cart.RecordId == id);
-           
-                int itemCount = 0;
-             
-                if (cartItem.Count > 1)
-                {
-                    cartItem.Count--;
-                    itemCount = cartItem.Count;
-                }
-                else
-                {
-                    db.Cart.Remove(cartItem);
-                }
 
-                db.SaveChanges();
-            
-        
+            int itemCount = 0;
+
+            if (cartItem.Count > 1)
+            {
+                cartItem.Count--;
+                itemCount = cartItem.Count;
+            }
+            else
+            {
+                db.Cart.Remove(cartItem);
+            }
+
+            db.SaveChanges();
+
+
             return itemCount;
         }
 
@@ -86,7 +86,7 @@ namespace CreepySuits.Models
         {
             var cartItemsCheckout = db.Cart.ToList();
 
-            foreach(var cartItemCheckout in cartItemsCheckout)
+            foreach (var cartItemCheckout in cartItemsCheckout)
             {
                 db.Cart.Remove(cartItemCheckout);
             }
@@ -99,14 +99,14 @@ namespace CreepySuits.Models
             var cartItems = db.Cart.Where(
                 cart => cart.CartId == ShoppingCartId);
 
-            foreach(var cartItem in cartItems)
+            foreach (var cartItem in cartItems)
             {
                 db.Cart.Remove(cartItem);
             }
 
             db.SaveChanges();
         }
-    
+
         public List<Cart> GetCartItems()
         {
 
@@ -142,14 +142,14 @@ namespace CreepySuits.Models
             decimal orderTotal = 0;
 
             var cartItems = GetCartItems();
-            foreach(var item in cartItems)
+            foreach (var item in cartItems)
             {
                 var orderDetail = new OrderDetail
                 {
-                    ProductId = item.ProductId,
+                    //ProductId = item.ProductId,
                     OrderId = order.OrderId,
                     UnitPrice = item.Product.Price,
-                    Quantity = item.Count
+                    //Quantity = item.Count
                 };
 
                 orderTotal += (item.Count * item.Product.Price);
@@ -158,15 +158,42 @@ namespace CreepySuits.Models
 
             order.Total = orderTotal;
             db.SaveChanges();
-            EmptyCart();
+            //EmptyCart();
             return order.OrderId;
+        }
+
+        public void KeepOrder(Cart cart, Order order)
+        {
+            if (cart != null)
+            {
+                
+                var keepOrder = db.OrderDetail.FirstOrDefault(
+                    c => c.OrderId == order.OrderId
+                    && c.UnitPrice == order.Total && c.ProductName ==cart.Product.Name);
+
+                if (keepOrder == null)
+                {
+                    keepOrder = new OrderDetail
+                    {
+                        OrderId = order.OrderId,
+                        UnitPrice = order.Total,
+                        ProductName = cart.Product.Name
+
+                    };
+
+                    db.OrderDetail.Add(keepOrder);
+                    db.SaveChanges();
+                }
+               
+            }
+           
         }
 
         public string GetCartId(HttpContextBase context)
         {
-            if(context.Session[CartSessionKey] == null)
+            if (context.Session[CartSessionKey] == null)
             {
-                if(!string.IsNullOrWhiteSpace(context.User.Identity.Name))
+                if (!string.IsNullOrWhiteSpace(context.User.Identity.Name))
                 {
                     context.Session[CartSessionKey] = context.User.Identity.Name;
                 }
@@ -184,12 +211,13 @@ namespace CreepySuits.Models
             var shoppingCart = db.Cart.Where(
                 c => c.CartId == ShoppingCartId);
 
-            foreach(Cart item in shoppingCart)
+            foreach (Cart item in shoppingCart)
             {
                 item.CartId = userName;
             }
 
             db.SaveChanges();
         }
+
     }
 }

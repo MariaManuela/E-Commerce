@@ -11,8 +11,11 @@ namespace CreepySuits.Repository
     {
         List<Category> FindAll();
         Category Find(int? id);
+        List<GenderAgeCategory> AFindAll();
+        GenderAgeCategory AFind(int? id);
         List<Product> Search(string searchString);
         List<Product> Category(string category);
+        List<Product> ACategory(string acategory);
         
         
     }

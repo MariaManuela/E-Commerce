@@ -52,13 +52,38 @@ namespace CreepySuits.Controllers
                     Categories = new List<Category>()
                 };
 
+            
                 ViewBag.ctg = ctgList;
 
 
+            var agectgList = iCategoryRepository.AFindAll();
 
+            var amodel = new CategoryViewModel()
+            {
+                ACategories = new List<GenderAgeCategory>()
+            };
+            ViewBag.agectg = agectgList;
 
 
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult AgeCategoryMenu()
+        {
+            var ageCategories = db.GenderAgeCategories.ToList();
+            return PartialView(ageCategories);
+        }
+
+        public ActionResult BrowseGenderCategory(string ageCategory)
+        {
+
+            //var categoryModel = new Category { CategoryName = category};
+            var ageCategoryModel = db.GenderAgeCategories.Include(s => s.Products).SingleOrDefault(c => c.GenderAgeCategoryName == ageCategory);
+
+            var prodList = iCategoryRepository.ACategory(ageCategory);
+            ViewBag.ac = prodList;
+            return View(ageCategoryModel);
         }
 
         [ChildActionOnly]
@@ -112,16 +137,11 @@ namespace CreepySuits.Controllers
 
             return PartialView("Error");
         }
-
-        [HttpPost]
-        public ActionResult Pagination(int page = 1)
+        public ActionResult OrderHistory()
         {
-
-
-            
-
-
-            return View();
+            List<Order> order = db.Order.ToList();
+            ViewBag.or = order;
+            return View("OrderHistory");
         }
 
         public ActionResult ProductDetails(int? id)

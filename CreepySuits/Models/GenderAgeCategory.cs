@@ -9,8 +9,8 @@ namespace CreepySuits.Models
     {
         public int GenderAgeCategoryId { get; set; }
         public string GenderAgeCategoryName { get; set; }
-        
-       
-        
+
+        public virtual List<Product> Products { get; set; }
+
     }
 }

@@ -23,7 +23,29 @@ namespace CreepySuits.Repository
            
         }
 
-     
+        public List<GenderAgeCategory> AFindAll()
+        {
+            return db.GenderAgeCategories.ToList();
+        }
+
+
+        public GenderAgeCategory AFind(int? id)
+        {
+
+            return db.GenderAgeCategories.Find(id);
+
+        }
+
+        public List<Product> ACategory(string acategory)
+        {
+
+            var aquery = db.Products.Where(x => x.AgeCategoryName.Equals(acategory));
+
+
+
+
+            return aquery.ToList();
+        }
 
         public List<Product> Category(string category)
         {

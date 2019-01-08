@@ -140,3 +140,8 @@ E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.newYear3.
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.newYear4.resources
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.newYear5.resources
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.sdfghjm.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.itsmybirthday2.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.imb3.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.imb4.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.imb5.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.oikoj.resources

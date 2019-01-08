@@ -8,6 +8,7 @@ namespace CreepySuits.ViewModels
 {
     public class CategoryViewModel
     {
+        public List<GenderAgeCategory> ACategories { get; set; }
         public List<Category> Categories { get; set; }
         public decimal NumberOfProd { get; set; }
     }

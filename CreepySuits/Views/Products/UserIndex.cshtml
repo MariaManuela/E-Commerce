@@ -87,9 +87,30 @@
 
                             @*@Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)*@
                             <li><a href="/Products/Browse?category=@l.CategoryName">@l.CategoryName</a></li>
-                      
+
 
                         }
+
+
+
+
+
+
+                    </ul>
+                    <br />
+                    <ul class="nav nav-list">
+
+
+                        <li class="nav-header">AGE/GENDER CATEGORIES</li>
+                        @foreach (var l in (List<GenderAgeCategory>)ViewBag.agectg)
+                        {
+
+                            @*@Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)*@
+                            <li><a href="/Products/BrowseGenderCategory?ageCategory=@l.GenderAgeCategoryName">@l.GenderAgeCategoryName</a></li>
+
+
+                        }
+
 
 
 
@@ -102,6 +123,8 @@
 
 
             </div>
+
+           
         </div>
     </section>
     <div class="container">

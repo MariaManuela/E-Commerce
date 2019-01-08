@@ -268,6 +268,26 @@
     <Compile Include="Migrations\201901041902313_sdfghjm.Designer.cs">
       <DependentUpon>201901041902313_sdfghjm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901081333278_itsmybirthday2.cs" />
+    <Compile Include="Migrations\201901081333278_itsmybirthday2.Designer.cs">
+      <DependentUpon>201901081333278_itsmybirthday2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081916302_imb3.cs" />
+    <Compile Include="Migrations\201901081916302_imb3.Designer.cs">
+      <DependentUpon>201901081916302_imb3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901081918567_imb4.cs" />
+    <Compile Include="Migrations\201901081918567_imb4.Designer.cs">
+      <DependentUpon>201901081918567_imb4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901082056003_imb5.cs" />
+    <Compile Include="Migrations\201901082056003_imb5.Designer.cs">
+      <DependentUpon>201901082056003_imb5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901082244101_oikoj.cs" />
+    <Compile Include="Migrations\201901082244101_oikoj.Designer.cs">
+      <DependentUpon>201901082244101_oikoj.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -444,6 +464,10 @@
     <Content Include="Views\Shared\SearchForm.cshtml" />
     <Content Include="Views\Products\SearchResult.cshtml" />
     <Content Include="Views\Products\ProductDetails.cshtml" />
+    <Content Include="Views\Checkout\OrderHistory.cshtml" />
+    <Content Include="Views\Products\OrderHistory.cshtml" />
+    <Content Include="Views\Products\AgeCategoryMenu.cshtml" />
+    <Content Include="Views\Products\BrowseGenderCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -505,6 +529,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901041902313_sdfghjm.resx">
       <DependentUpon>201901041902313_sdfghjm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081333278_itsmybirthday2.resx">
+      <DependentUpon>201901081333278_itsmybirthday2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081916302_imb3.resx">
+      <DependentUpon>201901081916302_imb3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901081918567_imb4.resx">
+      <DependentUpon>201901081918567_imb4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901082056003_imb5.resx">
+      <DependentUpon>201901082056003_imb5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901082244101_oikoj.resx">
+      <DependentUpon>201901082244101_oikoj.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

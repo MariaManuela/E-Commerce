@@ -14,8 +14,7 @@ namespace CreepySuits.Controllers
     {
   
         private ApplicationDbContext db = new ApplicationDbContext();
-       // const string PromoCode = "FREE";
-        //
+   
         // GET: /Checkout/AddressAndPayment
         public ActionResult AddressAndPayment()
         {
@@ -26,36 +25,38 @@ namespace CreepySuits.Controllers
         [HttpPost]
         public ActionResult AddressAndPayment(FormCollection values)
         {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+            var product = new Product();
+            var cp = new Cart();
             var order = new Order();
             TryUpdateModel(order);
 
-            try
-            {
-                //if (string.Equals(values["PromoCode"], PromoCode,
-                //    StringComparison.OrdinalIgnoreCase) == false)
-                //{
-                //    return View(order);
-                //}
-                //else
-               // {
+            try {
+                
                     order.Email = User.Identity.Name;
                     order.OrderDate = DateTime.Now;
+                    order.Total = cart.GetTotal();
+                
 
-                    //Save Order
-                    db.Order.Add(order);
+                //Save Order
+                db.Order.Add(order);
                     db.SaveChanges();
-                    //Process the order
-                    var cart = ShoppingCart.GetCart(this.HttpContext);
-                    cart.CreateOrder(order);
+                //Process the order
+                //var cart = ShoppingCart.GetCart(this.HttpContext);
+                cart.KeepOrder(cp, order);
 
-                    return RedirectToAction("Complete",
-                        new { id = order.OrderId });
-               // }
+                //return RedirectToAction("Complete",
+                //    new { id = order.OrderId });
+                return View(order);
             }
             catch
             {
+                cart.ClearCart();
+                
+                
                 //Invalid - redisplay with errors
-                return View(order);
+                return View("Complete");
+                
             }
         }
         //
@@ -70,13 +71,16 @@ namespace CreepySuits.Controllers
 
             if (isValid)
             {
-                cart.ClearCart();
+                //cart.ClearCart();
                 return View(id);
             }
             else
             {
                 return View("Error");
             }
+
+           
         }
+      
     }
 }

@@ -51,7 +51,10 @@ namespace CreepySuits.Models
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
         [ScaffoldColumn(false)]
+        public Product Product { get; set; }
+        [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
+        [ScaffoldColumn(false)]
         public List<OrderDetail> OrderDetails { get; set; }
     }
 }
