@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <title>Bootstrap E-commerce Templates</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <meta name="description" content="">
     <!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
     <!-- bootstrap -->
@@ -26,8 +26,10 @@
     <!-- global styles -->
     <link href="~/Content/flexslider.css" rel="stylesheet" />
     <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/Categ.css" rel="stylesheet" />
 
     <!-- scripts -->
+    <script src="~/Scripts/Categ.js"></script>
     <script src="~/Scripts/jquery-1.7.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/superfish.js"></script>
@@ -36,6 +38,11 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .products {
+            margin-top: -50px;
+        }
+    </style>
     <style>
         .pagination {
             display: inline-block;
@@ -48,14 +55,39 @@
                 text-decoration: none;
             }
     </style>
+
 </head>
 <body>
+
+    
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        CATEGORIES
+        <a href="/Products/Browse?category=Dresses">Dresses</a>
+        <a href="/Products/Browse?category=Costumes">Costumes</a>
+        <a href="/Products/Browse?category=Top">Top</a>
+        <a href="/Products/Browse?category=Bottom">Bottom</a>
+        <a href="/Products/Browse?category=Shoes">Shoes</a>
+        <a href="/Products/Browse?category=Accesories">Accesories</a>
+        <a href="/Products/Browse?category=Hats">Hats</a>
+        <a href="/Products/Browse?category=Make-up">Make-up</a>
+
+        CATEGORIES
+        <a href="/Products/BrowseGenderCategory?ageCategory=Male">Male</a>
+        <a href="/Products/BrowseGenderCategory?ageCategory=Female">Female</a>
+        <a href="/Products/BrowseGenderCategory?ageCategory=Kids">Kids</a>
+    </div>
 
     <section>
         <div class="row">
             <div class="span9">
-                <ul class="thumbnails listing-products">
+
+                @*<li><a href="/Products/Browse?category=Dresses">@l.CategoryName</a></li>*@
+
+                <ul class="thumbnails listing-products" style="margin-top: -50px">
+
                     <li class="span3">
+                        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIES</span>
 
                         @foreach (var i in (List<Product>)ViewBag.product)
                         {
@@ -70,61 +102,16 @@
                             </p>
                         }
 
+
                     </li>
 
                 </ul>
+
                 <hr>
 
             </div>
-            <div class="span3 col">
-                <div class="block">
-                    <ul class="nav nav-list">
 
 
-                        <li class="nav-header">CATEGORIES</li>
-                        @foreach (var l in (List<Category>)ViewBag.ctg)
-                        {
-
-                            @*@Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)*@
-                            <li><a href="/Products/Browse?category=@l.CategoryName">@l.CategoryName</a></li>
-
-
-                        }
-
-
-
-
-
-
-                    </ul>
-                    <br />
-                    <ul class="nav nav-list">
-
-
-                        <li class="nav-header">AGE/GENDER CATEGORIES</li>
-                        @foreach (var l in (List<GenderAgeCategory>)ViewBag.agectg)
-                        {
-
-                            @*@Html.ActionLink(l.CategoryName, "UserIndex", "Products", new { category = l.CategoryName }, null)*@
-                            <li><a href="/Products/BrowseGenderCategory?ageCategory=@l.GenderAgeCategoryName">@l.GenderAgeCategoryName</a></li>
-
-
-                        }
-
-
-
-
-
-
-                    </ul>
-                    <br />
-
-                </div>
-
-
-            </div>
-
-           
         </div>
     </section>
     <div class="container">
