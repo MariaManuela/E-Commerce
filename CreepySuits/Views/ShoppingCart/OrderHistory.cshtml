@@ -1,0 +1,13 @@
+﻿
+@model CreepySuits.ViewModels.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "Your Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderHistory</h2>
+@foreach (var l in Model.OrderHistory)
+{
+    @Html.ActionLink("Order no:" + l.RecordId , "ProductDetails", "UserIndex", new { id = l.ProductId })
+}

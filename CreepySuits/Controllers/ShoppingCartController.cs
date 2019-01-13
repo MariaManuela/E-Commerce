@@ -26,6 +26,20 @@ namespace CreepySuits.Controllers
             return View(viewModel);
         }
 
+        public ActionResult OrderHistory()
+        {
+
+            var order = ShoppingCart.GetOrder(this.HttpContext);
+
+            var viewModel = new ShoppingCartViewModel
+            {
+                OrderHistory = order.GetEachOrder(),
+                OrderTotal = order.GetTotal()
+            };
+
+            return View(viewModel);
+        }
+
         //GET: /Store/AddToCart/5
         public ActionResult AddToCart(int? id)
         {
@@ -42,6 +56,8 @@ namespace CreepySuits.Controllers
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");
         }
+
+ 
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5
         [HttpPost]

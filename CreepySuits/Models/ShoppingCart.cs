@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,7 +11,9 @@ namespace CreepySuits.Models
     {
         ApplicationDbContext db = new ApplicationDbContext();
         string ShoppingCartId { get; set; }
+        string OrderId { get; set; }
         public const string CartSessionKey = "CartId";
+        public const string OrderSessionKey = "OrderId";
         public static ShoppingCart GetCart(HttpContextBase context)
         {
             var cart = new ShoppingCart();
@@ -18,9 +21,21 @@ namespace CreepySuits.Models
             return cart;
         }
 
+        public static ShoppingCart GetOrder(HttpContextBase context)
+        {
+            var order = new ShoppingCart();
+            //order.OrderId = order.GetOrderId(context);
+            return order;
+        }
+
         public static ShoppingCart GetCart(Controller controller)
         {
             return GetCart(controller.HttpContext);
+        }
+
+        public static ShoppingCart GetOrder(Controller controller)
+        {
+            return GetOrder(controller.HttpContext);
         }
 
         public void AddToCart(Product product)
@@ -57,6 +72,44 @@ namespace CreepySuits.Models
                 db.SaveChanges();
             }
         }
+
+        public void AddToOrderHistory(Product product)
+        {
+         
+              var orderItem = db.OrderHistory.FirstOrDefault(c => c.OrderHistoryId == OrderId && c.ProductId == product.ProductId && c.Name == product.Name && c.Price == product.Price);
+            if (product == null)
+            {
+                orderItem = new OrderHistory
+                {
+                    RecordId = 1,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductId = product.ProductId,
+                    OrderHistoryId = OrderId,
+                    Count = 1,
+                    DateCreated = DateTime.Now
+
+                };
+
+
+
+                try
+                {
+                    db.OrderHistory.Add(orderItem);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
+            }
+        }  
 
         public int RemoveFromCart(int? id)
         {
@@ -114,6 +167,11 @@ namespace CreepySuits.Models
                 cart => cart.CartId == ShoppingCartId).ToList();
         }
 
+        public List<OrderHistory> GetEachOrder()
+        {
+            return db.OrderHistory.Where(order => order.OrderHistoryId == OrderId).ToList();
+        }
+
         public int GetCount()
         {
             int? count = (from cartItems in db.Cart
@@ -141,19 +199,20 @@ namespace CreepySuits.Models
         {
             decimal orderTotal = 0;
 
-            var cartItems = GetCartItems();
+            var cartItems = GetEachOrder();
             foreach (var item in cartItems)
             {
-                var orderDetail = new OrderDetail
+                var orderHistory = new OrderHistory
                 {
                     //ProductId = item.ProductId,
-                    OrderId = order.OrderId,
-                    UnitPrice = item.Product.Price,
+                    
+                    RecordId = order.OrderId,
+                    Price = item.Product.Price,
                     //Quantity = item.Count
                 };
 
                 orderTotal += (item.Count * item.Product.Price);
-                db.OrderDetail.Add(orderDetail);
+                db.OrderHistory.Add(orderHistory);
             }
 
             order.Total = orderTotal;
@@ -206,6 +265,23 @@ namespace CreepySuits.Models
             return context.Session[CartSessionKey].ToString();
         }
 
+        //public string GetOrderId(HttpContextBase context)
+        //{
+        //    if (context.Session[OrderSessionKey] == null)
+        //    {
+        //        if (!string.IsNullOrWhiteSpace(context.User.Identity.Name))
+        //        {
+        //            context.Session[OrderSessionKey] = context.User.Identity.Name;
+        //        }
+        //        else
+        //        {
+        //            Guid tempOrderId = Guid.NewGuid();
+        //            context.Session[OrderSessionKey] = tempOrderId.ToString();
+        //        }
+        //    }
+        //    return context.Session[OrderSessionKey].ToString();
+        //}
+
         public void MigrateCart(string userName)
         {
             var shoppingCart = db.Cart.Where(
@@ -218,6 +294,19 @@ namespace CreepySuits.Models
 
             db.SaveChanges();
         }
+
+        //public void MigrateOrder(string userName)
+        //{
+        //    var order = db.OrderHistory.Where(
+        //        c => c.OrderHistoryId == ShoppingCartId);
+
+        //    foreach (OrderHistory item in order)
+        //    {
+        //        item.OrderHistoryId = userName;
+        //    }
+
+        //    db.SaveChanges();
+        //}
 
     }
 }

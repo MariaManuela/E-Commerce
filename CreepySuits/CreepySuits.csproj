@@ -216,77 +216,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811111531240_izi1.cs" />
-    <Compile Include="Migrations\201811111531240_izi1.Designer.cs">
-      <DependentUpon>201811111531240_izi1.cs</DependentUpon>
+    <Compile Include="Migrations\201901091937185_lalala.cs" />
+    <Compile Include="Migrations\201901091937185_lalala.Designer.cs">
+      <DependentUpon>201901091937185_lalala.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811111551076_izi8.cs" />
-    <Compile Include="Migrations\201811111551076_izi8.Designer.cs">
-      <DependentUpon>201811111551076_izi8.cs</DependentUpon>
+    <Compile Include="Migrations\201901092101312_lalala6.cs" />
+    <Compile Include="Migrations\201901092101312_lalala6.Designer.cs">
+      <DependentUpon>201901092101312_lalala6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811121705403_1.cs" />
-    <Compile Include="Migrations\201811121705403_1.Designer.cs">
-      <DependentUpon>201811121705403_1.cs</DependentUpon>
+    <Compile Include="Migrations\201901092108381_lalala7.cs" />
+    <Compile Include="Migrations\201901092108381_lalala7.Designer.cs">
+      <DependentUpon>201901092108381_lalala7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811121710044_2.cs" />
-    <Compile Include="Migrations\201811121710044_2.Designer.cs">
-      <DependentUpon>201811121710044_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811121712118_3.cs" />
-    <Compile Include="Migrations\201811121712118_3.Designer.cs">
-      <DependentUpon>201811121712118_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811121713030_5.cs" />
-    <Compile Include="Migrations\201811121713030_5.Designer.cs">
-      <DependentUpon>201811121713030_5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811121714378_6.cs" />
-    <Compile Include="Migrations\201811121714378_6.Designer.cs">
-      <DependentUpon>201811121714378_6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811122005257_8.cs" />
-    <Compile Include="Migrations\201811122005257_8.Designer.cs">
-      <DependentUpon>201811122005257_8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901031544275_newYear.cs" />
-    <Compile Include="Migrations\201901031544275_newYear.Designer.cs">
-      <DependentUpon>201901031544275_newYear.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901031548172_newYear3.cs" />
-    <Compile Include="Migrations\201901031548172_newYear3.Designer.cs">
-      <DependentUpon>201901031548172_newYear3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901031604422_newYear4.cs" />
-    <Compile Include="Migrations\201901031604422_newYear4.Designer.cs">
-      <DependentUpon>201901031604422_newYear4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901031735051_newYear5.cs" />
-    <Compile Include="Migrations\201901031735051_newYear5.Designer.cs">
-      <DependentUpon>201901031735051_newYear5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901041902313_sdfghjm.cs" />
-    <Compile Include="Migrations\201901041902313_sdfghjm.Designer.cs">
-      <DependentUpon>201901041902313_sdfghjm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901081333278_itsmybirthday2.cs" />
-    <Compile Include="Migrations\201901081333278_itsmybirthday2.Designer.cs">
-      <DependentUpon>201901081333278_itsmybirthday2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901081916302_imb3.cs" />
-    <Compile Include="Migrations\201901081916302_imb3.Designer.cs">
-      <DependentUpon>201901081916302_imb3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901081918567_imb4.cs" />
-    <Compile Include="Migrations\201901081918567_imb4.Designer.cs">
-      <DependentUpon>201901081918567_imb4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901082056003_imb5.cs" />
-    <Compile Include="Migrations\201901082056003_imb5.Designer.cs">
-      <DependentUpon>201901082056003_imb5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901082244101_oikoj.cs" />
-    <Compile Include="Migrations\201901082244101_oikoj.Designer.cs">
-      <DependentUpon>201901082244101_oikoj.cs</DependentUpon>
+    <Compile Include="Migrations\201901101726126_first.cs" />
+    <Compile Include="Migrations\201901101726126_first.Designer.cs">
+      <DependentUpon>201901101726126_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -297,6 +241,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\OrderHistory.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\UserIndexModel.cs" />
@@ -470,6 +415,7 @@
     <Content Include="Views\Products\OrderHistory.cshtml" />
     <Content Include="Views\Products\AgeCategoryMenu.cshtml" />
     <Content Include="Views\Products\BrowseGenderCategory.cshtml" />
+    <Content Include="Views\ShoppingCart\OrderHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -493,59 +439,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811111531240_izi1.resx">
-      <DependentUpon>201811111531240_izi1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901091937185_lalala.resx">
+      <DependentUpon>201901091937185_lalala.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811111551076_izi8.resx">
-      <DependentUpon>201811111551076_izi8.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901092101312_lalala6.resx">
+      <DependentUpon>201901092101312_lalala6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811121705403_1.resx">
-      <DependentUpon>201811121705403_1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901092108381_lalala7.resx">
+      <DependentUpon>201901092108381_lalala7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811121710044_2.resx">
-      <DependentUpon>201811121710044_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811121712118_3.resx">
-      <DependentUpon>201811121712118_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811121713030_5.resx">
-      <DependentUpon>201811121713030_5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811121714378_6.resx">
-      <DependentUpon>201811121714378_6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811122005257_8.resx">
-      <DependentUpon>201811122005257_8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901031544275_newYear.resx">
-      <DependentUpon>201901031544275_newYear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901031548172_newYear3.resx">
-      <DependentUpon>201901031548172_newYear3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901031604422_newYear4.resx">
-      <DependentUpon>201901031604422_newYear4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901031735051_newYear5.resx">
-      <DependentUpon>201901031735051_newYear5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901041902313_sdfghjm.resx">
-      <DependentUpon>201901041902313_sdfghjm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901081333278_itsmybirthday2.resx">
-      <DependentUpon>201901081333278_itsmybirthday2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901081916302_imb3.resx">
-      <DependentUpon>201901081916302_imb3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901081918567_imb4.resx">
-      <DependentUpon>201901081918567_imb4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901082056003_imb5.resx">
-      <DependentUpon>201901082056003_imb5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901082244101_oikoj.resx">
-      <DependentUpon>201901082244101_oikoj.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901101726126_first.resx">
+      <DependentUpon>201901101726126_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

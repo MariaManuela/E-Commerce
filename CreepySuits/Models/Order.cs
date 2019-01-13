@@ -55,6 +55,6 @@ namespace CreepySuits.Models
         [ScaffoldColumn(false)]
         public System.DateTime OrderDate { get; set; }
         [ScaffoldColumn(false)]
-        public List<OrderDetail> OrderDetails { get; set; }
+        public List<OrderHistory> OrderHistory { get; set; }
     }
 }

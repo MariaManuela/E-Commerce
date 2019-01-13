@@ -13,6 +13,8 @@ namespace CreepySuits.ViewModels
     {
         [Key]
         public List<Cart> CartItems { get; set; }
+        public List<OrderHistory> OrderHistory { get; set; }
         public decimal CartTotal { get; set; }
+        public decimal OrderTotal { get; set; }
     }
 }

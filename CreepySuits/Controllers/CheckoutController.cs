@@ -26,6 +26,8 @@ namespace CreepySuits.Controllers
         public ActionResult AddressAndPayment(FormCollection values)
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
+            var orderH = ShoppingCart.GetOrder(this.HttpContext);
+            var orderhistory = new OrderHistory();
             var product = new Product();
             var cp = new Cart();
             var order = new Order();
@@ -36,9 +38,10 @@ namespace CreepySuits.Controllers
                     order.Email = User.Identity.Name;
                     order.OrderDate = DateTime.Now;
                     order.Total = cart.GetTotal();
-                
+
 
                 //Save Order
+                //db.OrderHistory.Add(orderhistory);
                 db.Order.Add(order);
                     db.SaveChanges();
                 //Process the order
@@ -51,6 +54,8 @@ namespace CreepySuits.Controllers
             }
             catch
             {
+                orderH.AddToOrderHistory(product);
+                //orderH.AddToOrderHistory(product);
                 cart.ClearCart();
                 
                 
