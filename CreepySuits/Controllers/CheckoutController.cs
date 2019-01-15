@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CreepySuits.ViewModels;
-
+using System.IO;
 
 namespace CreepySuits.Controllers
 {
@@ -28,6 +28,7 @@ namespace CreepySuits.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
             var orderH = ShoppingCart.GetOrder(this.HttpContext);
             var orderhistory = new OrderHistory();
+
             var product = new Product();
             var cp = new Cart();
             var order = new Order();
@@ -38,6 +39,7 @@ namespace CreepySuits.Controllers
                     order.Email = User.Identity.Name;
                     order.OrderDate = DateTime.Now;
                     order.Total = cart.GetTotal();
+                    
 
 
                 //Save Order
@@ -57,6 +59,8 @@ namespace CreepySuits.Controllers
                 orderH.AddToOrderHistory(product);
                 //orderH.AddToOrderHistory(product);
                 cart.ClearCart();
+                
+                
                 
                 
                 //Invalid - redisplay with errors
@@ -86,6 +90,50 @@ namespace CreepySuits.Controllers
 
            
         }
-      
+
+        [HttpGet]
+        public ActionResult PaymentMethod()
+        {
+            return View();
+            
+        }
+
+        [HttpPost]
+        public ActionResult PaymentMethod(Card card)
+        {
+            var product = new Product();
+            var order = new Order();
+            TryUpdateModel(card);
+
+            try
+            {
+                card.OrderId = order.OrderId;
+                card.ProductId = product.ProductId;
+                
+                db.Card.Add(card);
+                db.SaveChanges();
+  
+                return View(card);
+            }
+            catch
+            {
+
+
+                //Invalid - redisplay with errors
+                return View("Complete");
+
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult PaymentMethodfffff()
+        {
+            return View();
+
+        }
+
+
+
     }
 }

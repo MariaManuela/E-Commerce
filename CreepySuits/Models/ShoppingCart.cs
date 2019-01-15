@@ -73,6 +73,8 @@ namespace CreepySuits.Models
             }
         }
 
+       
+
         public void AddToOrderHistory(Product product)
         {
          
@@ -307,6 +309,14 @@ namespace CreepySuits.Models
 
         //    db.SaveChanges();
         //}
+        public void UpdateOrder(Order order)
+        {
+        
+                    db.Order.Add(order);
+                    db.SaveChanges();
+
+
+        }
 
     }
 }

@@ -16,7 +16,12 @@ namespace CreepySuits.Repository
         List<Product> Search(string searchString);
         List<Product> Category(string category);
         List<Product> ACategory(string acategory);
-        
-        
+        List<Product> PriceM(decimal priceMax);
+        List<Product> PriceMi(decimal priceMin);
+        List<Product> PriceExp(decimal priceExp);
+        List<Product> Filter(decimal price, string agecategory);
+
+
+
     }
 }

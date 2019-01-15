@@ -232,8 +232,65 @@
     <Compile Include="Migrations\201901101726126_first.Designer.cs">
       <DependentUpon>201901101726126_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901131430202_Card.cs" />
+    <Compile Include="Migrations\201901131430202_Card.Designer.cs">
+      <DependentUpon>201901131430202_Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901131433586_Pickup.cs" />
+    <Compile Include="Migrations\201901131433586_Pickup.Designer.cs">
+      <DependentUpon>201901131433586_Pickup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901131500094_xcvbnl.cs" />
+    <Compile Include="Migrations\201901131500094_xcvbnl.Designer.cs">
+      <DependentUpon>201901131500094_xcvbnl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901131623032_anasielsa.cs" />
+    <Compile Include="Migrations\201901131623032_anasielsa.Designer.cs">
+      <DependentUpon>201901131623032_anasielsa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901131624499_anasielsa4.cs" />
+    <Compile Include="Migrations\201901131624499_anasielsa4.Designer.cs">
+      <DependentUpon>201901131624499_anasielsa4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901150828272_hehehe.cs" />
+    <Compile Include="Migrations\201901150828272_hehehe.Designer.cs">
+      <DependentUpon>201901150828272_hehehe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901150853170_kjkhk.cs" />
+    <Compile Include="Migrations\201901150853170_kjkhk.Designer.cs">
+      <DependentUpon>201901150853170_kjkhk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901150955505_magic.cs" />
+    <Compile Include="Migrations\201901150955505_magic.Designer.cs">
+      <DependentUpon>201901150955505_magic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151021284_magic1.cs" />
+    <Compile Include="Migrations\201901151021284_magic1.Designer.cs">
+      <DependentUpon>201901151021284_magic1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151524418_hehe.cs" />
+    <Compile Include="Migrations\201901151524418_hehe.Designer.cs">
+      <DependentUpon>201901151524418_hehe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151532021_hehe9.cs" />
+    <Compile Include="Migrations\201901151532021_hehe9.Designer.cs">
+      <DependentUpon>201901151532021_hehe9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151533534_hehe8.cs" />
+    <Compile Include="Migrations\201901151533534_hehe8.Designer.cs">
+      <DependentUpon>201901151533534_hehe8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151535168_hehe7.cs" />
+    <Compile Include="Migrations\201901151535168_hehe7.Designer.cs">
+      <DependentUpon>201901151535168_hehe7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151537128_hehe6.cs" />
+    <Compile Include="Migrations\201901151537128_hehe6.Designer.cs">
+      <DependentUpon>201901151537128_hehe6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\GenderAgeCategory.cs" />
@@ -242,6 +299,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\OrderHistory.cs" />
+    <Compile Include="Models\PickupPoint.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\UserIndexModel.cs" />
@@ -335,6 +393,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Code\GlyphIcon.cshtml" />
+    <Content Include="Content\Cardulet.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Categ.js" />
     <Content Include="Scripts\common.js" />
@@ -416,6 +475,12 @@
     <Content Include="Views\Products\AgeCategoryMenu.cshtml" />
     <Content Include="Views\Products\BrowseGenderCategory.cshtml" />
     <Content Include="Views\ShoppingCart\OrderHistory.cshtml" />
+    <Content Include="Views\Checkout\PaymentMethod.cshtml" />
+    <Content Include="Views\Checkout\CompleteOrder.cshtml" />
+    <Content Include="Views\Checkout\OrderComplete.cshtml" />
+    <Content Include="Views\Products\PriceFilterMa.cshtml" />
+    <Content Include="Views\Products\PriceFilterMi.cshtml" />
+    <Content Include="Views\Checkout\PaymentMethodfffff.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -450,6 +515,48 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901101726126_first.resx">
       <DependentUpon>201901101726126_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901131430202_Card.resx">
+      <DependentUpon>201901131430202_Card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901131433586_Pickup.resx">
+      <DependentUpon>201901131433586_Pickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901131500094_xcvbnl.resx">
+      <DependentUpon>201901131500094_xcvbnl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901131623032_anasielsa.resx">
+      <DependentUpon>201901131623032_anasielsa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901131624499_anasielsa4.resx">
+      <DependentUpon>201901131624499_anasielsa4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901150828272_hehehe.resx">
+      <DependentUpon>201901150828272_hehehe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901150853170_kjkhk.resx">
+      <DependentUpon>201901150853170_kjkhk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901150955505_magic.resx">
+      <DependentUpon>201901150955505_magic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151021284_magic1.resx">
+      <DependentUpon>201901151021284_magic1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151524418_hehe.resx">
+      <DependentUpon>201901151524418_hehe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151532021_hehe9.resx">
+      <DependentUpon>201901151532021_hehe9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151533534_hehe8.resx">
+      <DependentUpon>201901151533534_hehe8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151535168_hehe7.resx">
+      <DependentUpon>201901151535168_hehe7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151537128_hehe6.resx">
+      <DependentUpon>201901151537128_hehe6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

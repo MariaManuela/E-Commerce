@@ -1,0 +1,42 @@
+﻿@using CreepySuits.Models
+@model CreepySuits.Models.Product
+
+@{
+    ViewBag.Title = "BrowsePrice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<section>
+    <div class="row">
+        <div class="span9">
+            <ul class="thumbnails listing-products">
+                <li class="span3">
+                    <div class="product-box">
+
+                        @foreach (var i in (List<Product>)ViewBag.pfmax)
+                        {
+                            <span class="sale_tag"></span>
+                            <a href=""><img alt="" src="@Url.Content("~/ProjectDocuments/Images/" + i.PicUrl)"></a><br />
+                            <a href="" class="title">@i.Name</a><br />
+                            <a href="#" class="category">@i.Category</a>
+                            <p class="price">@i.Price</p>
+                            @Html.ActionLink("Details", "Details", new { id = i.ProductId })
+                            <p class="button">
+                                @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = i.ProductId }, "")
+                            </p>
+                        }
+
+                    </div>
+                </li>
+
+            </ul>
+            <hr>
+
+        </div>
+
+    </div>
+</section>
+

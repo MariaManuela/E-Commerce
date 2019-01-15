@@ -68,6 +68,35 @@ namespace CreepySuits.Controllers
             return View();
         }
 
+        public ActionResult PriceFilterMa(decimal priceMax)
+        {
+            priceMax = 200;
+            var priceFMax = db.Products.Where(p => p.Price < priceMax && p.Price > 50).FirstOrDefault();
+            var priceList = iCategoryRepository.PriceM(priceMax);
+            ViewBag.pfmax = priceList;
+            return View(priceFMax);
+        }
+
+        public ActionResult PriceFilterMi(decimal priceMin)
+        {
+            priceMin = 50;
+            var priceFMin = db.Products.Where(p => p.Price < priceMin).FirstOrDefault();
+            var priceList = iCategoryRepository.PriceMi(priceMin);
+            ViewBag.pfmin = priceList;
+            return View(priceFMin);
+        }
+
+        public ActionResult PriceFilterExp(decimal priceExp)
+        {
+            priceExp = 200;
+            var priceFExp = db.Products.Where(p => p.Price > priceExp).FirstOrDefault();
+            var priceList = iCategoryRepository.PriceMi(priceExp);
+            ViewBag.pfmin = priceList;
+            return View(priceFExp);
+        }
+        
+
+
         [ChildActionOnly]
         public ActionResult AgeCategoryMenu()
         {
@@ -104,6 +133,8 @@ namespace CreepySuits.Controllers
             return View(categoryModel);
         }
 
+
+       
 
         public ActionResult Search()
         {
@@ -222,7 +253,6 @@ namespace CreepySuits.Controllers
             //  ViewBag.GenderAgeCategoryList = new SelectList(db.GenderAgeCategories, "GenderAgeCategoryId", "GenderAgeCategoryName", product.AgeCategory);
             return View(product);
         }
-
 
 
 

@@ -131,3 +131,17 @@ E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.csproj.GenerateResou
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.lalala6.resources
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.lalala7.resources
 E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.first.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.Card.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.Pickup.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.xcvbnl.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.anasielsa.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.anasielsa4.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.hehehe.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.kjkhk.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.magic.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.magic1.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.hehe.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.hehe9.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.hehe8.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.hehe7.resources
+E:\Programele\CreepySuits\CreepySuits\obj\Debug\CreepySuits.Migrations.hehe6.resources

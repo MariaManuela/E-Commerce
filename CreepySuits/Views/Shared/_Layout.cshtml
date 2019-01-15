@@ -12,13 +12,17 @@
     <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="~/Content/bootstrappage.css" rel="stylesheet" />
 
+
+
     <!-- global styles -->
     <link href="~/Content/flexslider.css" rel="stylesheet" />
     <link href="~/Content/main.css" rel="stylesheet" />
     <link href="~/Content/CarouselButton.css" rel="stylesheet" />
-    
+    <link href="~/Content/Categ.css" rel="stylesheet" />
+
 
     <!-- scripts -->
+    <script src="~/Scripts/Categ.js"></script>
     <script src="~/Scripts/jquery-1.7.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/superfish.js"></script>
@@ -34,7 +38,6 @@
             width: 100%;
             height: 100%;
         }
-      
     </style>
 
     @*@Styles.Render("~/Content/css")
@@ -43,6 +46,30 @@
 </head>
 <body>
 
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        CATEGORIES
+        <a href="/Products/Browse?category=Dresses">Dresses</a>
+        <a href="/Products/Browse?category=Costumes">Costumes</a>
+        <a href="/Products/Browse?category=Top">Top</a>
+        <a href="/Products/Browse?category=Bottom">Bottom</a>
+        <a href="/Products/Browse?category=Shoes">Shoes</a>
+        <a href="/Products/Browse?category=Accesories">Accesories</a>
+        <a href="/Products/Browse?category=Hats">Hats</a>
+        <a href="/Products/Browse?category=Make-up">Make-up</a>
+
+        GENDER/AGE CATEGORIES
+
+        <a href="/Products/BrowseGenderCategory?ageCategory=Male">Male</a>
+        <a href="/Products/BrowseGenderCategory?ageCategory=Female">Female</a>
+        <a href="/Products/BrowseGenderCategory?ageCategory=Kids">Kids</a>
+
+        PRICE
+        <a href="/Products/PriceFilterMi?priceMin=50">under 50</a>
+        <a href="/Products/PriceFilterMa?priceMax=200">50-200</a>
+        <a href="/Products/PriceFilterExp?priceExp=200">above 200</a>
+
+    </div>
     <div class="w3-container">
         @*<h2>@Html.ActionLink("Creepy Suits", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</h2>*@
         <img src="~/images/logo.png" style="width:200px" class="site_logo" alt="">
@@ -55,16 +82,16 @@
             @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
             @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
             @Html.Partial("_LoginPartial")
-            
+
 
         </div>
-     
+
 
     </div>
 
     <div id="wrapper" class="container">
         <div id="demo" class="carousel slide" data-ride="carousel">
-           
+
             <!-- Indicators -->
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -99,24 +126,39 @@
             </a>
 
         </div>
-
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIES</span>
         <div class="container body-content">
             @*@{ Html.RenderAction("UserIndex", "Products")}*@
 
             <hr />
             <footer>
                 @RenderBody()
+                <div class="container">
+                    <div class="pagination">
+                        @for (int i = 1; i < ViewBag.totalPages; i++)
+                        {
 
+                            @*<a href="@Url.Action("UserIndex", "Products", new { page = i })">@i</a>*@
+                            <a href="/Products/UserIndex?page=1">&laquo;</a>
+                            <a href="/Products/UserIndex?page=1">1</a>
+
+                            <a href="/Products/UserIndex?page=2">2</a>
+
+                            <a href="/Products/UserIndex?page=2">&raquo;</a>
+
+                        }
+                    </div>
+                </div>
             </footer>
-          
-      
-        <script src="~/Scripts/common.js"></script>
-        @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")*@
-        @RenderSection("scripts", required: false)
 
-    </div>
+
+            <script src="~/Scripts/common.js"></script>
+            @*@Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")*@
+            @RenderSection("scripts", required: false)
+
         </div>
+    </div>
 </body>
 </html>
 

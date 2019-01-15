@@ -56,5 +56,104 @@ namespace CreepySuits.Models
         public System.DateTime OrderDate { get; set; }
         [ScaffoldColumn(false)]
         public List<OrderHistory> OrderHistory { get; set; }
+        [ScaffoldColumn(false)]
+        public PaymentTypeEnum PaymentType { get; set; }
+        [ScaffoldColumn(false)]
+        public DeliveryTypeEnum DeliveryType { get; set; }
+        [ScaffoldColumn(false)]
+       
+        [DisplayName("Card Number")]
+        [StringLength(16)]
+        public string NrCard { get; set; }
+
+        [ScaffoldColumn(false)]
+        
+        [DisplayName("Expiration Date")]
+        public string ExpDate { get; set; }
+   
+        [DisplayName("Security Code")]
+        [StringLength(3)]
+        [ScaffoldColumn(false)]
+        public string SecurityCode { get; set; }
+
+        [DisplayName("Card type")]
+        [ScaffoldColumn(false)]
+        public CardType Type { get; set; }
+        
+        [DisplayName("City:")]
+        [ScaffoldColumn(false)]
+        public PickUpPointCity PCity { get; set; }
+        
+        [DisplayName("Street:")]
+        [ScaffoldColumn(false)]
+        public PickUpPointStreet PStreet { get; set; }
+
+
+
+        public enum PickUpPointCity
+        {
+            [Display(Name = "Craiova")]
+            Craiova,
+            [Display(Name = "Cluj")]
+            Cluj ,
+            [Display(Name = "Timisoara")]
+            Timisoara,
+            [Display(Name = "Slatina")]
+            Slatina,
+            [Display(Name = "Caracal")]
+            Caracal,
+            [Display(Name = "Bucuresti")]
+            Bucuresti,
+            [Display(Name = "Rm.Valcea")]
+            RmValcea,
+            [Display(Name = "Constanta")]
+            Constanta
+        }
+
+        public enum PickUpPointStreet
+        {
+            [Display(Name = "Str. Tei, nr. 22")]
+            Tei_nr_22,
+            [Display(Name = "Str. Bujor, nr. 44")]
+            Bujor_nr_44,
+            [Display(Name = "Str. Caracal, nr. 25")]
+            Caracal_nr_25,
+            [Display(Name = "Str. Garofitei, nr. 116")]
+            Garofitei_nr_116,
+            [Display(Name = "Str. Nicolae Titulescu, nr. 14")]
+            NicolaeTitulescu_nr_14,
+            [Display(Name = "Str. Victoria, nr. 20")]
+            Victoria_nr_20,
+            [Display(Name = "Str. 1 Decembrie, nr. 19")]
+            _1_Decembrie_19
+
+        }
+
+     
+        
+        public enum PaymentTypeEnum
+        {
+            Card,
+            COD
+        }
+        public enum DeliveryTypeEnum
+        {
+            CustomerAddress,
+            PickupPoint
+        }
+
+        public enum CardType
+        {
+            [Display(Name = "Master Card")]
+            MasterCard,
+            [Display(Name = "Visa")]
+            Visa,
+            [Display(Name = "American Express")]
+            AmericanExpress,
+            [Display(Name = "Discover Network")]
+            DiscoverNetwork,
+            [Display(Name = "JCB")]
+            JCB
+        }
     }
 }

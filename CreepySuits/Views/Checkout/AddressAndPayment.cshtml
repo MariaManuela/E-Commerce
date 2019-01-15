@@ -2,6 +2,8 @@
 
 
 @{
+    /**/
+
     ViewBag.Title = "AddressAndPayment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,15 +13,103 @@
         type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"
         type="text/javascript"></script>
+
+<script>
+    function yesnoCheck() {
+        if (document.getElementById('card').checked) {
+            document.getElementById('ifYes').style.visibility = 'visible';
+        }
+        else document.getElementById('ifYes').style.visibility = 'hidden';
+
+    }
+</script>
+
+<script>
+    function yesnoCheckPickup() {
+        if (document.getElementById('pickup').checked) {
+            document.getElementById('ifYesP').style.visibility = 'visible';
+        }
+        else document.getElementById('ifYesP').style.visibility = 'hidden';
+
+    }
+</script>
 @using (Html.BeginForm())
 {
 
 
-    <fieldset>
-        <legend>Shipping Information</legend>
-        @Html.EditorForModel()
-    </fieldset>
- 
+<fieldset>
+    <legend>Shipping Information</legend>
+    @Html.EditorForModel()
+    <div class="form-group">
+        @Html.LabelFor(m => m.DeliveryType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => m.DeliveryType, "Customer Address", new { @class = "radio-inline" })@Html.Label("Customer Address")
+            @Html.RadioButtonFor(m => m.DeliveryType, "Pick-up Point", new { id = "pickup", @onclick = "javascript:yesnoCheckPickup()", @class = "radio-inline" })@Html.Label("Pick-up Point")
+            <div id="ifYesP" style="visibility:hidden">
+                @Html.EnumDropDownListFor(model => model.PCity, "Select City")
+                @Html.EnumDropDownListFor(model => model.PStreet, "Select Street")
+            </div>
 
-    <input type="submit"/>
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PaymentType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(m => m.PaymentType, "Card", new { id = "card", @onclick = "javascript:yesnoCheck()", @class = "radio-inline" })@Html.Label("Card")
+            @Html.RadioButtonFor(m => m.PaymentType, "COD", new { id = "card", @onclick = "javascript:yesnoCheck()", @class = "radio-inline" })@Html.Label("COD")
+            <div id="ifYes" style="visibility:hidden">
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NrCard, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NrCard, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NrCard, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ExpDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ExpDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ExpDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SecurityCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SecurityCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SecurityCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.EnumDropDownListFor(model => model.Type, "Select type")
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    @*Yes <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"> No <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck"><br>
+        <div id="ifYes" style="visibility:hidden">
+            If yes, explain: <input type='text' id='yes' name='yes'><br>
+            What can we do to accommodate you?  <input type='text' id='acc' name='acc'>
+        </div>*@
+
+</fieldset>
+
+    <input type="submit" />
+
+
+
 }
+   

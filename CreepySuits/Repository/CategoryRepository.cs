@@ -36,6 +36,26 @@ namespace CreepySuits.Repository
 
         }
 
+        public List<Product> PriceM(decimal priceMax)
+        {
+            var priceFilterMax = db.Products.Where(x => x.Price < priceMax);
+            
+
+            return priceFilterMax.ToList();
+        }
+
+        public List<Product> PriceMi(decimal priceMin)
+        {
+            var priceFilterMin = db.Products.Where(x => x.Price < priceMin);
+            return priceFilterMin.ToList();
+        }
+
+        public List<Product> PriceExp(decimal priceExp)
+        {
+            var priceFilterExp = db.Products.Where(x => x.Price > priceExp);
+            return priceFilterExp.ToList();
+        }
+
         public List<Product> ACategory(string acategory)
         {
 
@@ -55,6 +75,13 @@ namespace CreepySuits.Repository
 
 
             
+            return query.ToList();
+        }
+
+        public List<Product> Filter(decimal price, string agecategory)
+        {
+            var query = db.Products.Where(x => x.AgeCategoryName.Equals(agecategory) && x.Price == price);
+
             return query.ToList();
         }
 

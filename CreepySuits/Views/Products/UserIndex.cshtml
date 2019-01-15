@@ -59,24 +59,7 @@
 </head>
 <body>
 
-    
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        CATEGORIES
-        <a href="/Products/Browse?category=Dresses">Dresses</a>
-        <a href="/Products/Browse?category=Costumes">Costumes</a>
-        <a href="/Products/Browse?category=Top">Top</a>
-        <a href="/Products/Browse?category=Bottom">Bottom</a>
-        <a href="/Products/Browse?category=Shoes">Shoes</a>
-        <a href="/Products/Browse?category=Accesories">Accesories</a>
-        <a href="/Products/Browse?category=Hats">Hats</a>
-        <a href="/Products/Browse?category=Make-up">Make-up</a>
-
-        CATEGORIES
-        <a href="/Products/BrowseGenderCategory?ageCategory=Male">Male</a>
-        <a href="/Products/BrowseGenderCategory?ageCategory=Female">Female</a>
-        <a href="/Products/BrowseGenderCategory?ageCategory=Kids">Kids</a>
-    </div>
+ 
 
     <section>
         <div class="row">
@@ -87,7 +70,7 @@
                 <ul class="thumbnails listing-products" style="margin-top: -50px">
 
                     <li class="span3">
-                        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIES</span>
+                       
 
                         @foreach (var i in (List<Product>)ViewBag.product)
                         {
@@ -114,22 +97,7 @@
 
         </div>
     </section>
-    <div class="container">
-        <div class="pagination">
-            @for (int i = 1; i < ViewBag.totalPages; i++)
-            {
-
-                @*<a href="@Url.Action("UserIndex", "Products", new { page = i })">@i</a>*@
-                <a href="/Products/UserIndex?page=1">&laquo;</a>
-                <a href="/Products/UserIndex?page=1">1</a>
-
-                <a href="/Products/UserIndex?page=2">2</a>
-
-                <a href="/Products/UserIndex?page=2">&raquo;</a>
-
-            }
-        </div>
-    </div>
+    
 
     <script src="~/Scripts/common.js"></script>
 </body>
